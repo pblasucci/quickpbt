@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="utf-8"?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+  <head>
+    <title>xUnit.net Test Results</title>
+    <style type="text/css">
+          body { font-family: Calibri, Verdana, Arial, sans-serif; background-color: White; color: Black; }
+          h2,h3,h4,h5 { margin: 0; padding: 0; }
+          h3 { font-weight: normal; }
+          h4 { margin: 0.5em 0; }
+          h5 { font-weight: normal; font-style: italic; margin-bottom: 0.75em; }
+          h6 { font-size: 0.9em; font-weight: bold; margin: 0.5em 0 0 0.75em; padding: 0; }
+          pre,table { font-family: Consolas; font-size: 0.8em; margin: 0 0 0 1em; padding: 0; }
+          table { padding-bottom: 0.25em; }
+          th { padding: 0 0.5em; border-right: 1px solid #bbb; text-align: left; }
+          td { padding-left: 0.5em; }
+          .divided { border-top: solid 1px #f0f5fa; padding-top: 0.5em; }
+          .row, .altrow { padding: 0.1em 0.3em; }
+          .row { background-color: #f0f5fa; }
+          .altrow { background-color: #e1ebf4; }
+          .success, .failure, .skipped { font-family: Arial Unicode MS; font-weight: normal; float: left; width: 1em; display: block; }
+          .success { color: #0c0; }
+          .failure { color: #c00; }
+          .skipped { color: #cc0; }
+          .timing { float: right; }
+          .indent { margin: 0.25em 0 0.5em 2em; }
+          .clickable { cursor: pointer; }
+          .testcount { font-size: 85%; }
+        </style>
+    <script language="javascript">
+          function ToggleClass(id) {
+            var elem = document.getElementById(id);
+            if (elem.style.display == "none") {
+              elem.style.display = "block";
+            }
+            else {
+              elem.style.display = "none";
+            }
+          }
+        </script>
+  </head>
+  <body>
+    <h3 class="divided">
+      <b>Assemblies Run</b>
+    </h3>
+    <div>C:\dev\quickpbt\quickpbt_cs\bin\Release\quickpbt_cs.DLL</div>
+    <div>C:\dev\quickpbt\quickpbt_fs\bin\Release\quickpbt_fs.DLL</div>
+    <div>C:\dev\quickpbt\quickpbt_vb\bin\Release\quickpbt_vb.DLL</div>
+    <h3 class="divided">
+      <b>Summary</b>
+    </h3>
+    <div>
+          Tests run: <a href="#all"><b>57</b></a>  
+          
+            Failures: <a href="#failures"><b>9</b></a>,
+          
+          Run time: <b>3.033s</b></div>
+    <br />
+    <h2>
+      <a id="failures" />Failed tests
+          </h2>
+    <div class="row">
+      <span class="timing">0.0369941s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.CS.Filtered.DaylightSavings_TestOracle_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (4 shrinks) (StdGen (393166201,296212427)):<br/>Original:<br/>1910-06-11 17:28:52 -01:40<br/>Shrunk:<br/>1910-06-11 00:00:00 +00:00<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+    <div class="altrow">
+      <span class="timing">0.0065655s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.CS.Labels.ZoneConversion_NotAffectedByDetours_Labelled<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (5 shrinks) (StdGen (394865370,296212427)):<br/>Label of failing property: Same Date? -04:00:00 = -03:00:00<br/>Original:<br/>(2010-02-04 03:41:15 +08:10, (UTC-08:00) Baja California, (UTC-04:00) Cuiaba)<br/>&lt;null&gt;<br/>Shrunk:<br/>(2010-02-04 00:00:00 +00:00, (UTC-08:00) Baja California, (UTC-04:00) Cuiaba)<br/>&lt;null&gt;<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    <div class="row">
+      <span class="timing">0.0221534s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.CS.Labels.ZoneConversion_NotAffectedByDetours_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 3 tests (4 shrinks) (StdGen (394624734,296212427)):<br/>Original:<br/>(1912-07-17 05:03:55 -05:28, (UTC+07:00) Hovd, (UTC+04:00) Baku)<br/>Shrunk:<br/>(1912-07-17 00:00:00 +00:00, (UTC+07:00) Hovd, (UTC+04:00) Baku)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    <div class="altrow">
+      <span class="timing">0.027707s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.FS.Filtered.daylight savings test oracle (naive)<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (4 shrinks) (StdGen (409683419,296212427)):<br/>Original:<br/>1900-10-09 21:29:41 +14:00<br/>Shrunk:<br/>1900-10-09 00:00:00 +00:00<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+    <div class="row">
+      <span class="timing">0.0449086s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.FS.Labels.zone conversion is not affected by detours (labelled)<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 7 tests (3 shrinks) (StdGen (410887082,296212427)):<br/>Label of failing property: Same Shift? (02:00:00 = 03:00:00)<br/>Original:<br/>(2062-09-22 00:43:35 -11:29, (UTC+12:00) Fiji, (UTC+02:00) Athens, Bucharest)<br/>Shrunk:<br/>(2062-09-22 00:00:00 +00:00, (UTC+12:00) Fiji, (UTC+02:00) Athens, Bucharest)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    <div class="altrow">
+      <span class="timing">0.0021132s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.FS.Labels.zone conversion is not affected by detours (naive)<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 6 tests (5 shrinks) (StdGen (411458276,296212427)):<br/>Original:<br/>(1988-12-30 17:30:28 +11:48, (UTC-04:00) Atlantic Time (Canada),\n (UTC-05:00) Chetumal)<br/>Shrunk:<br/>(1988-12-30 00:00:00 +00:00, (UTC-04:00) Atlantic Time (Canada),\n (UTC-05:00) Chetumal)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    <div class="row">
+      <span class="timing">0.0385935s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.VB.Filtered.DaylightSavings_TestOracle_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (5 shrinks) (StdGen (423245722,296212427)):<br/>Original:<br/>1935-08-14 07:43:20 +07:53<br/>Shrunk:<br/>1935-08-14 00:00:00 +00:00<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+    <div class="altrow">
+      <span class="timing">0.0319846s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.VB.Labels.ZoneConversion_NotAffectedByDetours_Labelled<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 4 tests (5 shrinks) (StdGen (424243407,296212427)):<br/>Label of failing property: Same Date? 13:00:00 = -11:00:00<br/>Original:<br/>(1946-01-08 11:21:13 +05:11, (UTC+09:00) Yakutsk, (UTC+13:00) Samoa)<br/>&lt;null&gt;<br/>Shrunk:<br/>(1946-01-08 00:00:00 +00:00, (UTC+09:00) Yakutsk, (UTC+13:00) Samoa)<br/>&lt;null&gt;<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    <div class="row">
+      <span class="timing">0.0016617s
+        </span>
+      <span class="failure">✘</span>
+       QuickPBT.VB.Labels.ZoneConversion_NotAffectedByDetours_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (5 shrinks) (StdGen (424704667,296212427)):<br/>Original:<br/>(2014-10-15 10:10:09 +01:58, (UTC-10:00) Hawaii, (UTC+11:00) Bougainville Island)<br/>Shrunk:<br/>(2014-10-15 00:00:00 +00:00, (UTC-10:00) Hawaii, (UTC+11:00) Bougainville Island)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    <br />
+    <h2>
+      <a id="all" />All tests
+        </h2>
+    <h5>Click test class name to expand/collapse test details</h5>
+    <h3>
+      <span class="timing">0.074s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EPE')" ondblclick="ToggleClass('classID0EPE')">
+        <span class="failure">✘</span>
+               QuickPBT.CS.Filtered
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" id="classID0EPE">
+      <div class="row">
+        <span class="timing">0.0247401s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Filtered.DaylightSavings_TestOracle_Conditional<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0369941s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.CS.Filtered.DaylightSavings_TestOracle_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (4 shrinks) (StdGen (393166201,296212427)):<br/>Original:<br/>1910-06-11 17:28:52 -01:40<br/>Shrunk:<br/>1910-06-11 00:00:00 +00:00<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.012087s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Filtered.TimeZoneInfo_IsUnchanged_RoundTripSerialization<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.420s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EHD')" ondblclick="ToggleClass('classID0EHD')">
+        <span class="success">✔</span>
+               QuickPBT.CS.Generation
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EHD">
+      <div class="row">
+        <span class="timing">0.2127443s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Generation.PositiveTimeDistribution<br clear="all" /><h6>Output:</h6><pre>
+[Distribution of 100 PositiveTime Instances]
+
+10612995.15:40:40.7910018 |  1 | =
+01485021.03:41:43.3736679 |  1 | =
+04543450.00:30:54.3656008 |  1 | =
+07556550.18:47:06.6171796 |  1 | =
+09188700.08:57:00.1521816 |  2 | ==
+04659431.03:56:32.7636176 |  2 | ==
+00592050.19:54:55.2805591 |  2 | ==
+08153692.02:53:31.4182136 |  3 | ===
+09283603.08:48:43.6170683 |  3 | ===
+05322946.15:45:56.0473919 |  5 | =====
+09956544.18:19:54.8843868 |  5 | =====
+02283513.17:03:07.4876842 |  7 | =======
+01725769.04:44:38.3365122 |  8 | ========
+09456780.10:48:19.0267557 | 19 | ===================
+09843163.06:13:18.4891284 | 20 | ====================
+10254630.20:09:08.4436022 | 20 | ====================
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0646797s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Generation.TimeZoneInfo_IsUnchanged_RoundTripSerialization<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.1427484s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Generation.TimeZoneInfoDistribution<br clear="all" /><h6>Output:</h6><pre>
+[Distribution of 100 TimeZoneInfo Instances]
+
+Central Asia Standard Time          |  1 | =
+West Asia Standard Time             |  1 | =
+Ulaanbaatar Standard Time           |  1 | =
+Pakistan Standard Time              |  1 | =
+Mauritius Standard Time             |  1 | =
+Russia TZ 1 Standard Time           |  1 | =
+Namibia Standard Time               |  1 | =
+SA Western Standard Time            |  1 | =
+Cuba Standard Time                  |  1 | =
+Central Standard Time (Mexico)      |  1 | =
+US Mountain Standard Time           |  1 | =
+Marquesas Standard Time             |  1 | =
+New Zealand Standard Time           |  1 | =
+Russia TZ 10 Standard Time          |  1 | =
+Arabic Standard Time                |  1 | =
+AUS Central Standard Time           |  1 | =
+Atlantic Standard Time              |  1 | =
+Eastern Standard Time (Mexico)      |  1 | =
+Central America Standard Time       |  1 | =
+China Standard Time                 |  1 | =
+Pacific Standard Time (Mexico)      |  1 | =
+Myanmar Standard Time               |  1 | =
+UTC-11                              |  1 | =
+India Standard Time                 |  1 | =
+Kamchatka Standard Time             |  1 | =
+Georgian Standard Time              |  1 | =
+Sakhalin Standard Time              |  1 | =
+Iran Standard Time                  |  1 | =
+Libya Standard Time                 |  1 | =
+West Bank Gaza Standard Time        |  1 | =
+Russia TZ 7 Standard Time           |  1 | =
+SE Asia Standard Time               |  1 | =
+Central European Standard Time      |  1 | =
+UTC-08                              |  1 | =
+Samoa Standard Time                 |  2 | ==
+Russia TZ 5 Standard Time           |  2 | ==
+Greenwich Standard Time             |  2 | ==
+Mid-Atlantic Standard Time          |  2 | ==
+Argentina Standard Time             |  2 | ==
+Pacific SA Standard Time            |  2 | ==
+E. Africa Standard Time             |  2 | ==
+US Eastern Standard Time            |  2 | ==
+Canada Central Standard Time        |  2 | ==
+Syria Standard Time                 |  2 | ==
+Mountain Standard Time (Mexico)     |  2 | ==
+Alaskan Standard Time               |  2 | ==
+Line Islands Standard Time          |  2 | ==
+UTC+12                              |  2 | ==
+Magadan Standard Time               |  2 | ==
+West Pacific Standard Time          |  2 | ==
+Korea Standard Time                 |  2 | ==
+Taipei Standard Time                |  2 | ==
+Russia TZ 6 Standard Time           |  2 | ==
+Bangladesh Standard Time            |  2 | ==
+Russia TZ 4 Standard Time           |  2 | ==
+Jerusalem Standard Time             |  2 | ==
+E. Europe Standard Time             |  2 | ==
+W. Central Africa Standard Time     |  2 | ==
+GMT Standard Time                   |  2 | ==
+UTC-02                              |  2 | ==
+SA Eastern Standard Time            |  2 | ==
+Russia TZ 9 Standard Time           |  2 | ==
+Cen. Australia Standard Time        |  2 | ==
+North Korea Standard Time           |  2 | ==
+Russia TZ 3 Standard Time           |  3 | ===
+Russia TZ 2 Standard Time           |  3 | ===
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.043s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0ENH')" ondblclick="ToggleClass('classID0ENH')">
+        <span class="failure">✘</span>
+               QuickPBT.CS.Labels
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" id="classID0ENH">
+      <div class="row">
+        <span class="timing">0.014616s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Labels.ZoneConversion_NotAffectedByDetours_Corrected<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0065655s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.CS.Labels.ZoneConversion_NotAffectedByDetours_Labelled<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (5 shrinks) (StdGen (394865370,296212427)):<br/>Label of failing property: Same Date? -04:00:00 = -03:00:00<br/>Original:<br/>(2010-02-04 03:41:15 +08:10, (UTC-08:00) Baja California, (UTC-04:00) Cuiaba)<br/>&lt;null&gt;<br/>Shrunk:<br/>(2010-02-04 00:00:00 +00:00, (UTC-08:00) Baja California, (UTC-04:00) Cuiaba)<br/>&lt;null&gt;<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0221534s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.CS.Labels.ZoneConversion_NotAffectedByDetours_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 3 tests (4 shrinks) (StdGen (394624734,296212427)):<br/>Original:<br/>(1912-07-17 05:03:55 -05:28, (UTC+07:00) Hovd, (UTC+04:00) Baku)<br/>Shrunk:<br/>(1912-07-17 00:00:00 +00:00, (UTC+07:00) Hovd, (UTC+04:00) Baku)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.050s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0E1F')" ondblclick="ToggleClass('classID0E1F')">
+        <span class="success">✔</span>
+               QuickPBT.CS.Observations
+               <span class="testcount">
+                (4 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0E1F">
+      <div class="row">
+        <span class="timing">0.0118496s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Observations.DivisibilityOfAddedDays_Collect<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+52% Even.
+48% Odd.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0127901s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Observations.ManyObservationsCombined<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+20% Odd, East of Greenwich, trivial.
+18% Odd, West of Greenwich, trivial.
+14% Even, East of Greenwich, trivial.
+12% Even, West of Greenwich, trivial.
+12% Even, East of Greenwich.
+9% Odd, West of Greenwich.
+8% Even, West of Greenwich.
+6% Odd, East of Greenwich.
+1% Even, Within Greenwich.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0063719s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Observations.RelativeMeridianPosition_Classify<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+52% West of Greenwich.
+47% East of Greenwich.
+1% Within Greenwich.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0192765s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Observations.SupportsDaylightSavings_Trivial<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests (60% trivial).
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.073s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EUB')" ondblclick="ToggleClass('classID0EUB')">
+        <span class="success">✔</span>
+               QuickPBT.CS.Patterns
+               <span class="testcount">
+                (4 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EUB">
+      <div class="row">
+        <span class="timing">0.0044081s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Patterns.Adding_ChangingZone_CanBeReordered<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0554225s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Patterns.Adding_DoesNotChange_DatesOffset<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0058085s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Patterns.Adding_SubtractingDays_AreInverses<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0069233s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Patterns.Taking_TimeDuration_IsIdempotent<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.057s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EY')" ondblclick="ToggleClass('classID0EY')">
+        <span class="success">✔</span>
+               QuickPBT.CS.Teaser
+               <span class="testcount">
+                (2 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EY">
+      <div class="row">
+        <span class="timing">0.0469661s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Teaser.DaysShouldEqualHours<br clear="all" /><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>teaser</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0098228s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.CS.Teaser.UnitOfTime_ShouldNot_EffectAddition<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>teaser</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.070s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EKBAC')" ondblclick="ToggleClass('classID0EKBAC')">
+        <span class="failure">✘</span>
+               QuickPBT.FS.Filtered
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" id="classID0EKBAC">
+      <div class="row">
+        <span class="timing">0.0319872s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Filtered.daylight savings test oracle (conditional)<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.027707s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.FS.Filtered.daylight savings test oracle (naive)<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (4 shrinks) (StdGen (409683419,296212427)):<br/>Original:<br/>1900-10-09 21:29:41 +14:00<br/>Shrunk:<br/>1900-10-09 00:00:00 +00:00<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0100084s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Filtered.zone is unchanged through round-trip serialization<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.438s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EVCAC')" ondblclick="ToggleClass('classID0EVCAC')">
+        <span class="success">✔</span>
+               QuickPBT.FS.Generation
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EVCAC">
+      <div class="row">
+        <span class="timing">0.172304s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Generation.positive time distribution<br clear="all" /><h6>Output:</h6><pre>
+[Distribution of 100 PositiveTime Instances]
+
+02708311.02:30:10.4138398 |  1 | =
+01371573.18:17:50.4649606 |  1 | =
+00516746.22:46:11.8500439 |  2 | ==
+07966012.16:36:10.4048709 |  2 | ==
+09452292.15:33:03.3696112 |  2 | ==
+01617266.20:10:15.1331156 |  4 | ====
+03203100.22:11:42.2979637 |  4 | ====
+00127472.21:38:16.2226321 |  5 | =====
+00152812.16:41:31.4534219 |  7 | =======
+10185593.14:31:12.5251724 |  8 | ========
+07591364.18:54:23.0443237 | 11 | ===========
+10142985.21:34:25.8180617 | 53 | =====================================================
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.2102197s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Generation.time zone info distribution<br clear="all" /><h6>Output:</h6><pre>
+[Distribution of 100 TimeZoneInfo Instances]
+
+Sakhalin Standard Time             |  1 | =
+Russia TZ 9 Standard Time          |  1 | =
+Cen. Australia Standard Time       |  1 | =
+China Standard Time                |  1 | =
+Myanmar Standard Time              |  1 | =
+India Standard Time                |  1 | =
+Pakistan Standard Time             |  1 | =
+Mauritius Standard Time            |  1 | =
+Russia TZ 1 Standard Time          |  1 | =
+Syria Standard Time                |  1 | =
+Namibia Standard Time              |  1 | =
+Greenwich Standard Time            |  1 | =
+FLE Standard Time                  |  1 | =
+Middle East Standard Time          |  1 | =
+Central Standard Time              |  1 | =
+UTC-08                             |  1 | =
+SE Asia Standard Time              |  1 | =
+Aleutian Standard Time             |  1 | =
+Sri Lanka Standard Time            |  1 | =
+Chatham Islands Standard Time      |  1 | =
+Caucasus Standard Time             |  1 | =
+Central Pacific Standard Time      |  1 | =
+Lord Howe Standard Time            |  1 | =
+AUS Central Standard Time          |  1 | =
+Newfoundland Standard Time         |  1 | =
+Eastern Standard Time (Mexico)     |  1 | =
+UTC-11                             |  1 | =
+Cabo Verde Standard Time           |  1 | =
+Kamchatka Standard Time            |  1 | =
+Central Asia Standard Time         |  1 | =
+Pacific Standard Time              |  1 | =
+UTC-02                             |  1 | =
+Georgian Standard Time             |  2 | ==
+Iran Standard Time                 |  2 | ==
+Libya Standard Time                |  2 | ==
+West Bank Gaza Standard Time       |  2 | ==
+North Korea Standard Time          |  2 | ==
+Jordan Standard Time               |  2 | ==
+W. Europe Standard Time            |  2 | ==
+Azores Standard Time               |  2 | ==
+Greenland Standard Time            |  2 | ==
+Turks and Caicos Standard Time     |  2 | ==
+Paraguay Standard Time             |  2 | ==
+SA Pacific Standard Time           |  2 | ==
+Mountain Standard Time             |  2 | ==
+UTC-09                             |  2 | ==
+Dateline Standard Time             |  2 | ==
+Norfolk Standard Time              |  2 | ==
+Tasmania Standard Time             |  2 | ==
+Ulaanbaatar Standard Time          |  2 | ==
+Tomsk Standard Time                |  2 | ==
+Russia TZ 5 Standard Time          |  2 | ==
+E. Africa Standard Time            |  2 | ==
+Atlantic Standard Time             |  2 | ==
+Central America Standard Time      |  2 | ==
+Aus Central W. Standard Time       |  2 | ==
+Russia TZ 7 Standard Time          |  2 | ==
+Arabian Standard Time              |  2 | ==
+Arabic Standard Time               |  2 | ==
+South Africa Standard Time         |  2 | ==
+GTB Standard Time                  |  2 | ==
+Central Europe Standard Time       |  2 | ==
+Pacific Standard Time (Mexico)     |  2 | ==
+Fiji Standard Time                 |  3 | ===
+Russia TZ 8 Standard Time          |  3 | ===
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0550618s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Generation.zone is unchanged through round-trip serialization<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.053s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0E4DAC')" ondblclick="ToggleClass('classID0E4DAC')">
+        <span class="failure">✘</span>
+               QuickPBT.FS.Labels
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" id="classID0E4DAC">
+      <div class="row">
+        <span class="timing">0.0061618s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Labels.zone conversion is not affected by detours (corrected)<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0449086s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.FS.Labels.zone conversion is not affected by detours (labelled)<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 7 tests (3 shrinks) (StdGen (410887082,296212427)):<br/>Label of failing property: Same Shift? (02:00:00 = 03:00:00)<br/>Original:<br/>(2062-09-22 00:43:35 -11:29, (UTC+12:00) Fiji, (UTC+02:00) Athens, Bucharest)<br/>Shrunk:<br/>(2062-09-22 00:00:00 +00:00, (UTC+12:00) Fiji, (UTC+02:00) Athens, Bucharest)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0021132s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.FS.Labels.zone conversion is not affected by detours (naive)<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 6 tests (5 shrinks) (StdGen (411458276,296212427)):<br/>Original:<br/>(1988-12-30 17:30:28 +11:48, (UTC-04:00) Atlantic Time (Canada),\n (UTC-05:00) Chetumal)<br/>Shrunk:<br/>(1988-12-30 00:00:00 +00:00, (UTC-04:00) Atlantic Time (Canada),\n (UTC-05:00) Chetumal)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.047s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0ELFAC')" ondblclick="ToggleClass('classID0ELFAC')">
+        <span class="success">✔</span>
+               QuickPBT.FS.Observations
+               <span class="testcount">
+                (4 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0ELFAC">
+      <div class="row">
+        <span class="timing">0.0094789s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Observations.divisibility of added days (collect)<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests (100% QuickPBT.FS.Libary+Divisibility).
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.018723s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Observations.many observations combined<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+41% QuickPBT.FS.Libary+Divisibility, East of Greenwich, trivial.
+26% QuickPBT.FS.Libary+Divisibility, West of Greenwich, trivial.
+18% QuickPBT.FS.Libary+Divisibility, East of Greenwich.
+15% QuickPBT.FS.Libary+Divisibility, West of Greenwich.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0054974s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Observations.relative meridian position (classify)<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+51% West of Greenwich.
+49% East of Greenwich.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0135676s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Observations.supports daylight savings (trivial)<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests (62% trivial).
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.069s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0E5GAC')" ondblclick="ToggleClass('classID0E5GAC')">
+        <span class="success">✔</span>
+               QuickPBT.FS.Patterns
+               <span class="testcount">
+                (4 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0E5GAC">
+      <div class="row">
+        <span class="timing">0.0042119s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Patterns.adding &amp; changing zone can be reordered<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0048709s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Patterns.adding and subtracting days are inverses<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0502354s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Patterns.adding does not change the date offset<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0096663s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Patterns.taking a time duration is idempotent<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.062s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0ERIAC')" ondblclick="ToggleClass('classID0ERIAC')">
+        <span class="success">✔</span>
+               QuickPBT.FS.Teaser
+               <span class="testcount">
+                (2 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0ERIAC">
+      <div class="row">
+        <span class="timing">0.0447806s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Teaser.DaysShouldEqualHours<br clear="all" /><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>teaser</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0170418s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.FS.Teaser.the unit of time should not effect addition<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>teaser</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.115s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0E2JAC')" ondblclick="ToggleClass('classID0E2JAC')">
+        <span class="failure">✘</span>
+               QuickPBT.VB.Filtered
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" id="classID0E2JAC">
+      <div class="row">
+        <span class="timing">0.0684817s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Filtered.DaylightSavings_TestOracle_Conditional<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0385935s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.VB.Filtered.DaylightSavings_TestOracle_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (5 shrinks) (StdGen (423245722,296212427)):<br/>Original:<br/>1935-08-14 07:43:20 +07:53<br/>Shrunk:<br/>1935-08-14 00:00:00 +00:00<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0079144s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Filtered.TimeZoneInfo_IsUnchanged_RoundTripSerialization<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>filtered</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.074s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EIPAC')" ondblclick="ToggleClass('classID0EIPAC')">
+        <span class="success">✔</span>
+               QuickPBT.VB.Generation
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EIPAC">
+      <div class="row">
+        <span class="timing">0.0416064s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Generation.PositiveTimeDistribution<br clear="all" /><h6>Output:</h6><pre>\n[Distribution of 100 PositiveTime Instances]\n
+08662269.13:00:32.4403272 |  1 | =
+03487860.08:58:13.9851845 |  1 | =
+06200976.15:35:34.3905262 |  1 | =
+01072212.08:17:00.5717804 |  1 | =
+09831809.08:09:31.9866315 |  1 | =
+10198641.19:40:51.4044682 |  2 | ==
+07696357.20:02:00.4831671 |  2 | ==
+02762667.17:06:02.1514775 |  2 | ==
+03908746.17:13:22.2502708 |  2 | ==
+05065664.12:16:31.1228829 |  3 | ===
+06455755.05:00:19.7531761 |  3 | ===
+00378281.19:49:30.7310751 |  3 | ===
+07248404.21:28:38.2874290 |  3 | ===
+07262657.02:04:27.5413763 |  4 | ====
+09438992.04:56:50.2619894 |  8 | ========
+08303256.04:40:15.5690759 | 10 | ==========
+00134321.12:22:07.0746827 | 16 | ================
+00932171.21:42:56.4915292 | 17 | =================
+00573806.15:55:47.9889850 | 20 | ====================
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0087385s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Generation.TimeZoneInfo_IsUnchanged_RoundTripSerialization<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0237864s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Generation.TimeZoneInfoDistribution<br clear="all" /><h6>Output:</h6><pre>\n[Distribution of 100 TimeZoneInfo Instances]\n
+Turks and Caicos Standard Time      |  1 | =
+Paraguay Standard Time              |  1 | =
+Greenwich Standard Time             |  1 | =
+UTC-08                              |  1 | =
+Mountain Standard Time (Mexico)     |  1 | =
+Alaskan Standard Time               |  1 | =
+Line Islands Standard Time          |  1 | =
+UTC+12                              |  1 | =
+Magadan Standard Time               |  1 | =
+West Pacific Standard Time          |  1 | =
+Hawaiian Standard Time              |  1 | =
+Tonga Standard Time                 |  1 | =
+Russia TZ 11 Standard Time          |  1 | =
+Bougainville Standard Time          |  1 | =
+Transbaikal Standard Time           |  1 | =
+Malay Peninsula Standard Time       |  1 | =
+Altai Standard Time                 |  1 | =
+E. Australia Standard Time          |  2 | ==
+Canada Central Standard Time        |  2 | ==
+Korea Standard Time                 |  2 | ==
+Taipei Standard Time                |  2 | ==
+Russia TZ 6 Standard Time           |  2 | ==
+Bangladesh Standard Time            |  2 | ==
+Russia TZ 4 Standard Time           |  2 | ==
+Russia TZ 3 Standard Time           |  2 | ==
+Russia TZ 2 Standard Time           |  2 | ==
+Jerusalem Standard Time             |  2 | ==
+E. Europe Standard Time             |  2 | ==
+W. Central Africa Standard Time     |  2 | ==
+GMT Standard Time                   |  2 | ==
+UTC-02                              |  2 | ==
+SA Eastern Standard Time            |  2 | ==
+SA Western Standard Time            |  2 | ==
+Cuba Standard Time                  |  2 | ==
+Central Standard Time (Mexico)      |  2 | ==
+US Mountain Standard Time           |  2 | ==
+Marquesas Standard Time             |  2 | ==
+Samoa Standard Time                 |  2 | ==
+New Zealand Standard Time           |  2 | ==
+Russia TZ 10 Standard Time          |  2 | ==
+AUS Eastern Standard Time           |  2 | ==
+Tokyo Standard Time                 |  2 | ==
+W. Mongolia Standard Time           |  2 | ==
+Central Asia Standard Time          |  2 | ==
+West Asia Standard Time             |  2 | ==
+Azerbaijan Standard Time            |  2 | ==
+Belarus Standard Time               |  2 | ==
+Turkey Standard Time                |  2 | ==
+Egypt Standard Time                 |  2 | ==
+Central European Standard Time      |  2 | ==
+Morocco Standard Time               |  2 | ==
+Bahia Standard Time                 |  2 | ==
+E. South America Standard Time      |  2 | ==
+Central Brazilian Standard Time     |  2 | ==
+Haiti Standard Time                 |  2 | ==
+Easter Island Standard Time         |  2 | ==
+Pacific Standard Time               |  2 | ==
+W. Australia Standard Time          |  3 | ===
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>generation</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.041s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0ERAAE')" ondblclick="ToggleClass('classID0ERAAE')">
+        <span class="failure">✘</span>
+               QuickPBT.VB.Labels
+               <span class="testcount">
+                (3 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" id="classID0ERAAE">
+      <div class="row">
+        <span class="timing">0.007782s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Labels.ZoneConversion_NotAffectedByDetours_Corrected<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0319846s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.VB.Labels.ZoneConversion_NotAffectedByDetours_Labelled<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 4 tests (5 shrinks) (StdGen (424243407,296212427)):<br/>Label of failing property: Same Date? 13:00:00 = -11:00:00<br/>Original:<br/>(1946-01-08 11:21:13 +05:11, (UTC+09:00) Yakutsk, (UTC+13:00) Samoa)<br/>&lt;null&gt;<br/>Shrunk:<br/>(1946-01-08 00:00:00 +00:00, (UTC+09:00) Yakutsk, (UTC+13:00) Samoa)<br/>&lt;null&gt;<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0016617s
+        </span>
+        <span class="failure">✘</span>
+       QuickPBT.VB.Labels.ZoneConversion_NotAffectedByDetours_Naive<br clear="all" /><pre>FsCheck.Xunit.PropertyFailedException : <br/>Falsifiable, after 1 test (5 shrinks) (StdGen (424704667,296212427)):<br/>Original:<br/>(2014-10-15 10:10:09 +01:58, (UTC-10:00) Hawaii, (UTC+11:00) Bougainville Island)<br/>Shrunk:<br/>(2014-10-15 00:00:00 +00:00, (UTC-10:00) Hawaii, (UTC+11:00) Bougainville Island)<br/></pre><pre></pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>labelled</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.263s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0ECMAC')" ondblclick="ToggleClass('classID0ECMAC')">
+        <span class="success">✔</span>
+               QuickPBT.VB.Observations
+               <span class="testcount">
+                (4 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0ECMAC">
+      <div class="row">
+        <span class="timing">0.0186799s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Observations.DivisibilityOfAddedDays_Collect<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+54% Even.
+46% Odd.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0128637s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Observations.ManyObservationsCombined<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+20% Even, West of Greenwich, trivial.
+19% Even, East of Greenwich, trivial.
+18% Odd, East of Greenwich, trivial.
+11% Odd, West of Greenwich, trivial.
+9% Odd, East of Greenwich.
+8% Odd, West of Greenwich.
+8% Even, East of Greenwich.
+7% Even, West of Greenwich.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.2267864s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Observations.RelativeMeridianPosition_Classify<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+51% West of Greenwich.
+49% East of Greenwich.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0051108s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Observations.SupportsDaylightSavings_Trivial<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests (62% trivial).
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>observations</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.027s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EVNAC')" ondblclick="ToggleClass('classID0EVNAC')">
+        <span class="success">✔</span>
+               QuickPBT.VB.Patterns
+               <span class="testcount">
+                (4 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EVNAC">
+      <div class="row">
+        <span class="timing">0.007336s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Patterns.Adding_ChangingZone_CanBeReordered<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0063518s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Patterns.Adding_DoesNotChange_DatesOffset<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="row">
+        <span class="timing">0.0041746s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Patterns.Adding_SubtractingDays_AreInverses<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0088473s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Patterns.Taking_TimeDuration_IsIdempotent<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>patterns</td></tr></table></div>
+    </div>
+    <h3>
+      <span class="timing">0.048s
+            </span>
+      <span class="clickable" onclick="ToggleClass('classID0EGLAC')" ondblclick="ToggleClass('classID0EGLAC')">
+        <span class="success">✔</span>
+               QuickPBT.VB.Teaser
+               <span class="testcount">
+                (2 tests)
+              </span></span>
+      <br clear="all" />
+    </h3>
+    <div class="indent" style="display: none;" id="classID0EGLAC">
+      <div class="row">
+        <span class="timing">0.0422513s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Teaser.DaysShouldEqualHours<br clear="all" /><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>teaser</td></tr></table></div>
+      <div class="altrow">
+        <span class="timing">0.0057647s
+        </span>
+        <span class="success">✔</span>
+       QuickPBT.VB.Teaser.UnitOfTime_ShouldNot_EffectAddition<br clear="all" /><h6>Output:</h6><pre>Ok, passed 100 tests.
+
+</pre><h6>Traits:</h6><table cellspacing="0" cellpadding="0"><tr><th>section</th><td>teaser</td></tr></table></div>
+    </div>
+  </body>
+</html>
