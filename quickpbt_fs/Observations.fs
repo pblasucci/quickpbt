@@ -7,7 +7,7 @@ open FsCheck.Xunit
 /// contains examples of gathering diagnostics abour generated data
 module Observations =
   (* a trival observation partions data into one of two buckets *)
-  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("section","observations")>]
+  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("group","observations")>]
   let ``supports daylight savings (trivial)`` (civil :date) (target :zone) (NonNegativeInt total) =
     let days = time.FromDays total
 
@@ -18,7 +18,7 @@ module Observations =
       |> Prop.trivial target.SupportsDaylightSavingTime
 
   (* a classification partions data into one of N, labelled buckets *)
-  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("section","observations")>]
+  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("group","observations")>]
   let ``relative meridian position (classify)`` (civil :date) (target :zone) (NonNegativeInt total) =
     let days = time.FromDays total
 
@@ -31,7 +31,7 @@ module Observations =
       |> Prop.classify (civil.Offset > time.Zero) "East of Greenwich"
 
   (* rather than using a boolean observation, collect reports any value *)
-  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("section","observations")>]
+  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("group","observations")>]
   let ``divisibility of added days (collect)`` (civil :date) (target :zone) (NonNegativeInt total) =
     let days = time.FromDays total
 
@@ -42,7 +42,7 @@ module Observations =
       |> Prop.collect (if total % 2 = 0 then Even else Odd)
 
   (* observations may be combined as mush as is desired *)
-  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("section","observations")>]
+  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("group","observations")>]
   let ``many observations combined`` (civil :date) (target :zone) (NonNegativeInt total) =
     let days = time.FromDays total
 

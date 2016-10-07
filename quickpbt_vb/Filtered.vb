@@ -5,7 +5,7 @@ Imports Zone  = System.TimeZoneInfo
 ''' demonstrates a few different ways to filter inputs to a test
 Public NotInheritable Class Filtered
   ' naive test fails (because the range of inputs is too broad)
-  <[Property], Trait("section", "filtered")>
+  <[Property], Trait("group", "filtered")>
   Public Function DaylightSavings_TestOracle_Naive (civil As Dated) As Boolean
     ' NOTE: this test also demonstrates the common pattern of the 
     '       "test oracle" ... using a known-good implementation of 
@@ -16,7 +16,7 @@ Public NotInheritable Class Filtered
   End Function
 
   ' uses a conditional property to ensure only valid inputs are used
-  <[Property], Trait("section", "filtered")>
+  <[Property], Trait("group", "filtered")>
   Public Function DaylightSavings_TestOracle_Conditional (civil AS Dated) As [Property]
     Dim eastern   = Zone.FindSystemTimeZoneById("Eastern Standard Time")
     Dim eastDate  = Zone.ConvertTime(civil, eastern)
@@ -28,7 +28,7 @@ Public NotInheritable Class Filtered
   End Function
 
   ' instead of a conditional property, here we use a IArbitrary with a "universal quantifier"
-  <[Property], Trait("section", "filtered")>
+  <[Property], Trait("group", "filtered")>
   Public Function TimeZoneInfo_IsUnchanged_RoundTripSerialization () As [Property]
     ' arbitrary generators can be easily defined
     Dim zones =

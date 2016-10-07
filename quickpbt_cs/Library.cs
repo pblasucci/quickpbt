@@ -26,7 +26,7 @@ namespace QuickPBT.CS
       this.Value = value;
     }
 
-    public override Boolean Equals (object obj)
+    public override Boolean Equals(object obj)
     {
       var that = obj as PositiveTime;
       if (that == null) return false;
@@ -34,9 +34,9 @@ namespace QuickPBT.CS
       return this.Value.Equals(that.Value);
     }
 
-    public override Int32 GetHashCode () => -1640531527 ^ this.Value.GetHashCode();
+    public override Int32 GetHashCode() => -1640531527 ^ this.Value.GetHashCode();
 
-    public override String ToString () => $"PositiveTime({Value})";
+    public override String ToString() => $"PositiveTime({Value})";
   }
 
   /// <summary>

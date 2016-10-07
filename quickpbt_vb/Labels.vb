@@ -7,7 +7,7 @@ Imports Zone  = System.TimeZoneInfo
 ''' </summary>
 Public NotInheritable Class Labels
   ' compound property tests can lead to obtuse failures... which propery is at fault?
-  <[Property](Arbitrary := { GetType(Generator) }), Trait("section", "labelled")>
+  <[Property](Arbitrary := { GetType(Generator) }), Trait("group", "labelled")>
   Public Function ZoneConversion_NotAffectedByDetours_Naive (civil As Dated, zone1 As Zone, zone2 As Zone) As Boolean
     Dim viaZone1 = zone.ConvertTime(zone.ConvertTime(civil, zone1), zone2)
     Dim directly = zone.ConvertTime(civil, zone2)
@@ -18,7 +18,7 @@ Public NotInheritable Class Labels
   End Function
     
   ' FsCheck propvides tools for labelling individual properties
-  <[Property](Arbitrary := { GetType(Generator) }), Trait("section", "labelled")>
+  <[Property](Arbitrary := { GetType(Generator) }), Trait("group", "labelled")>
   Public Function ZoneConversion_NotAffectedByDetours_Labelled (civil As Dated, zone1 As Zone, zone2 As Zone) As [Property]
     Dim viaZone1 = zone.ConvertTime(zone.ConvertTime(civil, zone1), zone2)
     Dim directly = zone.ConvertTime(civil, zone2)
@@ -33,7 +33,7 @@ Public NotInheritable Class Labels
   End Function
   
   ' based on the knowledge gained by labelling properties, we can fix the test
-  <[Property](Arbitrary := { GetType(Generator) }), Trait("section", "labelled")>
+  <[Property](Arbitrary := { GetType(Generator) }), Trait("group", "labelled")>
   Public Function ZoneConversion_NotAffectedByDetours_Corrected (civil As Dated, zone1 As Zone, zone2 As Zone) As [Property]
     Dim viaZone1 = zone.ConvertTime(zone.ConvertTime(civil, zone1), zone2)
     Dim directly = zone.ConvertTime(civil, zone2)

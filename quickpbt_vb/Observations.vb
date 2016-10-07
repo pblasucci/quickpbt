@@ -9,7 +9,7 @@ Imports QuickPBT.VB.Divisibility
 ''' </summary>
 Public NotInheritable Class Observations
   ' a trival observation partions data into one of two buckets
-  <[Property] (Arbitrary := { GetType(Generator) }), Trait("section", "observations")>
+  <[Property] (Arbitrary := { GetType(Generator) }), Trait("group", "observations")>
   Public Function SupportsDaylightSavings_Trivial (civil As Dated, target As Zone, total As NonNegativeInt) As [Property]
     Dim days = Time.FromDays(total.Item)
 
@@ -20,7 +20,7 @@ Public NotInheritable Class Observations
   End Function
 
   ' a classification partions data into one of N, labelled buckets
-  <[Property] (Arbitrary := { GetType(Generator) }), Trait("section", "observations")>
+  <[Property] (Arbitrary := { GetType(Generator) }), Trait("group", "observations")>
   Public Function RelativeMeridianPosition_Classify (civil As Dated, target As Zone, total As NonNegativeInt) As [Property]
     Dim days = Time.FromDays(total.Item)
 
@@ -33,7 +33,7 @@ Public NotInheritable Class Observations
   End Function
 
   ' rather than using a boolean observation, collect reports any value
-  <[Property] (Arbitrary := { GetType(Generator) }), Trait("section", "observations")>
+  <[Property] (Arbitrary := { GetType(Generator) }), Trait("group", "observations")>
   Public Function DivisibilityOfAddedDays_Collect (civil As Dated, target As Zone, total As NonNegativeInt) As [Property]
     Dim days = Time.FromDays(total.Item)
 
@@ -44,7 +44,7 @@ Public NotInheritable Class Observations
   End Function
 
   ' observations may be combined as mush as is desired
-  <[Property] (Arbitrary := { GetType(Generator) }), Trait("section", "observations")>
+  <[Property] (Arbitrary := { GetType(Generator) }), Trait("group", "observations")>
   Public Function ManyObservationsCombined (civil As Dated, target As Zone, total As NonNegativeInt) As [Property]
     Dim days = Time.FromDays(total.Item)
 

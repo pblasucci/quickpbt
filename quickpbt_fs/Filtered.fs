@@ -8,7 +8,7 @@ open System
 /// demonstrates a few different ways to filter inputs to a test
 module Filtered =
   (* naive test fails (because the range of inputs is too broad) *)
-  [<Property; Trait ("section","filtered")>]
+  [<Property; Trait ("group","filtered")>]
   let ``daylight savings test oracle (naive)`` (civil :date) =
     (**
       NOTE: this test also demonstrates the common pattern of the 
@@ -20,7 +20,7 @@ module Filtered =
     Zone.inUnitedStatesDaylightTime eastDate = eastern.IsDaylightSavingTime eastDate
 
   (* uses a conditional property to ensure only valid inputs are used *)
-  [<Property; Trait ("section","filtered")>]
+  [<Property; Trait ("group","filtered")>]
   let ``daylight savings test oracle (conditional)`` (civil :date) =
     let eastern   = zone.FindSystemTimeZoneById "Eastern Standard Time"
     let eastDate  = zone.ConvertTime (civil,eastern)
@@ -29,7 +29,7 @@ module Filtered =
       ==> lazy Zone.inUnitedStatesDaylightTime eastDate
 
   (* instead of a conditional property, here we use a IArbitrary with a "universal quantifier" *)
-  [<Property; Trait ("section","filtered")>]
+  [<Property; Trait ("group","filtered")>]
   let ``zone is unchanged through round-trip serialization`` () =
     // arbitrary generators can be easily defined
     let zones =

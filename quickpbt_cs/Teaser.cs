@@ -17,8 +17,8 @@ namespace QuickPBT.CS
     private static readonly Int32 daysInAWeek   = 7;
     private static readonly Int32 hoursInAWeek  = daysInAWeek * 24; // hours in a day
 
-    [Fact, Trait("section", "teaser")]
-    public static void DaysShouldEqualHours ()
+    [Fact, Trait("group", "teaser")]
+    public static void DaysShouldEqualHours()
     {
       var days  = time.FromDays(daysInAWeek);
       var hours = time.FromHours(hoursInAWeek);
@@ -27,8 +27,8 @@ namespace QuickPBT.CS
       Assert.Equal(civil + days, civil + hours);
     }
 
-    [Property, Trait("section", "teaser")]
-    public static Boolean UnitOfTime_ShouldNot_EffectAddition (date civil)
+    [Property, Trait("group", "teaser")]
+    public static Boolean UnitOfTime_ShouldNot_EffectAddition(date civil)
     {
       var days  = time.FromDays(daysInAWeek);
       var hours = time.FromHours(hoursInAWeek);

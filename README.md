@@ -38,7 +38,12 @@ execution to a single language, use one of the following commands:
 Note, that the above commands can be used with or with the `-ef report` flag.
 However, remember that a new report is generated everytime anyway.
 
-_Additionally, this code has only been tested on Windows 10 (64-bit). However,
+Also, there are several cases where a test's name, signature, or implementation
+may appear slightly differently in source than in the slide deck. This is done
+solely to permit a consise presentation. The behavior -- and net effects -- should
+be identical. Apologies for any confusion this might cause.
+
+_Finally, this code has only been tested on Windows 10 (64-bit). However,
 other platforms should work with little or no modification._
 
 ---

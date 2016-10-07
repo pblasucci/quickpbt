@@ -20,7 +20,7 @@ namespace QuickPBT.CS
     /// <summary>
     /// generates arbitrary TimeZoneInfo instances, with no shrinking
     /// </summary>
-    public static Arbitrary<zone> Zone () => 
+    public static Arbitrary<zone> Zone() => 
       Gen.Elements(from z in zone.GetSystemTimeZones() select z)
          .ToArbitrary();
 
@@ -28,7 +28,7 @@ namespace QuickPBT.CS
     /// generates PositiveTime instances by leveraging FsCheck's built-in
     /// support for generating and shrinking TimeSpan instances
     /// </summary>
-    public static Arbitrary<PositiveTime> PosTimes () =>
+    public static Arbitrary<PositiveTime> PosTimes() =>
       Arb.From (
         // generator
         from  t in Arb.Generate<time>()
@@ -65,8 +65,8 @@ namespace QuickPBT.CS
     /// <summary>
     /// reports the random distribution of 100 PositiveTime instances
     /// </summary>
-    [Fact, Trait("section", "generation")]
-    public void PositiveTimeDistribution ()
+    [Fact, Trait("group", "generation")]
+    public void PositiveTimeDistribution()
     {
       this.output.WriteLine("\n[Distribution of 100 PositiveTime Instances]\n");
       foreach (var pair in Generator.PosTimes().Distribute(5,100))
@@ -83,8 +83,8 @@ namespace QuickPBT.CS
     /// <summary>
     /// reports the random distribution of 100 TimeZoneInfo instances
     /// </summary>
-    [Fact, Trait("section", "generation")]
-    public void TimeZoneInfoDistribution ()
+    [Fact, Trait("group", "generation")]
+    public void TimeZoneInfoDistribution()
     {
       this.output.WriteLine("\n[Distribution of 100 TimeZoneInfo Instances]\n");
       var zones   = Generator.Zone()
@@ -112,8 +112,8 @@ namespace QuickPBT.CS
     } 
  
     /* deonstrates attaching a collection of IArbitrary instances to a test */
-    [Property(Arbitrary = new []{ typeof(Generator) }), Trait("section", "generation")]
-    public Boolean TimeZoneInfo_IsUnchanged_RoundTripSerialization (zone target)
+    [Property(Arbitrary = new []{ typeof(Generator) }), Trait("group", "generation")]
+    public Boolean TimeZoneInfo_IsUnchanged_RoundTripSerialization(zone target)
     {
       /**
         NOTE: since we've registered our generator, FsCheck will automatically 

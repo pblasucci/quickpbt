@@ -51,7 +51,7 @@ Public NotInheritable Class Generation
   ''' <summary>
   ''' reports the random distribution of 100 PositiveTime instances
   ''' </summary>
-  <Fact, Trait("section", "generation")>
+  <Fact, Trait("group", "generation")>
   Public Sub PositiveTimeDistribution ()
     Me.output.WriteLine(vbNewLine & "[Distribution of 100 PositiveTime Instances]" & vbNewLine)
     For Each pair In Generator.PositiveTime().Distribute(5,100)
@@ -67,7 +67,7 @@ Public NotInheritable Class Generation
   ''' <summary>
   ''' reports the random distribution of 100 TimeZoneInfo instances
   ''' </summary>
-  <Fact, Trait("section", "generation")>
+  <Fact, Trait("group", "generation")>
   Public Sub TimeZoneInfoDistribution ()
     Me.output.WriteLine(vbNewLine & "[Distribution of 100 TimeZoneInfo Instances]" & vbNewLine)
     Dim zones   = Generator.TimeZoneInfo()    _
@@ -93,7 +93,7 @@ Public NotInheritable Class Generation
   End Sub
  
   ' deonstrates attaching a collection of IArbitrary instances to a test
-  <[Property](Arbitrary := { GetType(Generator) }), Trait("section", "generation")>
+  <[Property](Arbitrary := { GetType(Generator) }), Trait("group", "generation")>
   Public Function TimeZoneInfo_IsUnchanged_RoundTripSerialization (target As Zone) As Boolean
     ' NOTE: since we've registered our generator, FsCheck will automatically 
     '       create `zone`s for use in testing... for fun, compare this test 

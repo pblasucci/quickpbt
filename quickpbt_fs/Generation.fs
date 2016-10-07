@@ -46,7 +46,7 @@ type Generation (out :ITestOutputHelper) =
     |> Seq.sortBy   (fun (_ ,count) -> count)
 
   /// reports the random distribution of 100 PositiveTime instances
-  [<Fact; Trait ("section","generation")>]
+  [<Fact; Trait ("group","generation")>]
   member __.``positive time distribution`` () = 
     out.WriteLine "\n[Distribution of 100 PositiveTime Instances]\n"
     Generator.PositiveTime 
@@ -58,7 +58,7 @@ type Generation (out :ITestOutputHelper) =
     out.WriteLine ""
 
   /// reports the random distribution of 100 TimeZoneInfo instances
-  [<Fact; Trait ("section","generation")>]
+  [<Fact; Trait ("group","generation")>]
   member __.``time zone info distribution`` () = 
     out.WriteLine "\n[Distribution of 100 TimeZoneInfo Instances]\n"
     let zones   = Generator.TimeZoneInfo
@@ -76,7 +76,7 @@ type Generation (out :ITestOutputHelper) =
     out.WriteLine ""
 
   (* deonstrates attaching a collection of IArbitrary instances to a test *)
-  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("section","generation")>]
+  [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("group","generation")>]
   member __.``zone is unchanged through round-trip serialization`` (target :zone) =
     (**
       NOTE: since we've registered our generator, FsCheck will automatically 

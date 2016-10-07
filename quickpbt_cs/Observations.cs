@@ -16,8 +16,8 @@ namespace QuickPBT.CS
   public static class Observations
   {
     /* a trival observation partions data into one of two buckets */
-    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("section", "observations")]
-    public static Property SupportsDaylightSavings_Trivial (date civil, zone target, NonNegativeInt total)
+    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("group", "observations")]
+    public static Property SupportsDaylightSavings_Trivial(date civil, zone target, NonNegativeInt total)
     {
       var days = time.FromDays(total.Item);
 
@@ -28,8 +28,8 @@ namespace QuickPBT.CS
     }
 
     /* a classification partions data into one of N, labelled buckets */
-    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("section", "observations")]
-    public static Property RelativeMeridianPosition_Classify (date civil, zone target, NonNegativeInt total)
+    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("group", "observations")]
+    public static Property RelativeMeridianPosition_Classify(date civil, zone target, NonNegativeInt total)
     {
       var days = time.FromDays(total.Item);
 
@@ -42,8 +42,8 @@ namespace QuickPBT.CS
     }
 
     /* rather than using a boolean observation, collect reports any value */
-    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("section", "observations")]
-    public static Property DivisibilityOfAddedDays_Collect (date civil, zone target, NonNegativeInt total)
+    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("group", "observations")]
+    public static Property DivisibilityOfAddedDays_Collect(date civil, zone target, NonNegativeInt total)
     {
       var days = time.FromDays(total.Item);
 
@@ -54,8 +54,8 @@ namespace QuickPBT.CS
     }
 
     /* observations may be combined as mush as is desired */
-    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("section", "observations")]
-    public static Property ManyObservationsCombined (date civil, zone target, NonNegativeInt total)
+    [Property (Arbitrary = new []{ typeof(Generator) }), Trait("group", "observations")]
+    public static Property ManyObservationsCombined(date civil, zone target, NonNegativeInt total)
     {
       var days = time.FromDays(total.Item);
 

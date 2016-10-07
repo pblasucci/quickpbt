@@ -7,14 +7,14 @@ open FsCheck.Xunit
 /// demonstrates testing for very common properties
 module Patterns = 
   (* inversion ... the property by which an action and its inverse cancel out *)
-  [<Property; Trait ("section","patterns")>]
+  [<Property; Trait ("group","patterns")>]
   let ``adding and subtracting days are inverses`` (civil :date) (PositiveInt total) =
     let days = time.FromDays total
     
     (civil + days) - days = civil
 
   (* interchange ... the property by which the order of two or more actions does not affect the outcome *)
-  [<Property; Trait ("section","patterns")>]
+  [<Property; Trait ("group","patterns")>]
   let ``adding & changing zone can be reordered`` (civil :date) (PositiveInt total) =
     let pacStd = "Pacific Standard Time"
     let days   = time.FromDays total
@@ -25,7 +25,7 @@ module Patterns =
     addThenShift = shiftThenAdd
 
   (* invariance ... the property by which something remains constant, despite action being taken *)
-  [<Property; Trait ("section","patterns")>]
+  [<Property; Trait ("group","patterns")>]
   let ``adding does not change the date offset`` (civil :date) (PositiveInt months) =
     let offset  = civil.Offset
     let shifted = civil.AddMonths months
@@ -33,7 +33,7 @@ module Patterns =
     shifted.Offset = offset
 
   (* idempotence ... the property of an action having the same effect no matter how many times it occurs *)
-  [<Property; Trait ("section","patterns")>]
+  [<Property; Trait ("group","patterns")>]
   let ``taking a time duration is idempotent`` (value :time) = 
     let once  = value.Duration()
     let twice = value.Duration().Duration()

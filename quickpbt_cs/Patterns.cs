@@ -15,16 +15,16 @@ namespace QuickPBT.CS
   public static class Patterns
   {
     /* inversion ... the property by which an action and its inverse cancel out */
-    [Property, Trait("section", "patterns")]    
-    public static Boolean Adding_SubtractingDays_AreInverses (date civil, PositiveInt total)
+    [Property, Trait("group", "patterns")]    
+    public static Boolean Adding_SubtractingDays_AreInverses(date civil, PositiveInt total)
     {
       var days = time.FromDays(total.Item);
       return ((civil + days) - days == civil);
     }
 
     /* interchange ... the property by which the order of two or more actions does not affect the outcome */
-    [Property, Trait("section", "patterns")]
-    public static Boolean Adding_ChangingZone_CanBeReordered (date civil, PositiveInt total)
+    [Property, Trait("group", "patterns")]
+    public static Boolean Adding_ChangingZone_CanBeReordered(date civil, PositiveInt total)
     {
       var pacStd = "Pacific Standard Time";
       var days   = time.FromDays(total.Item);
@@ -36,8 +36,8 @@ namespace QuickPBT.CS
     }
 
     /* invariance ... the property by which something remains constant, despite action being taken */
-    [Property, Trait("section", "patterns")]
-    public static Boolean Adding_DoesNotChange_DatesOffset (date civil, PositiveInt months)
+    [Property, Trait("group", "patterns")]
+    public static Boolean Adding_DoesNotChange_DatesOffset(date civil, PositiveInt months)
     {
       var offset  = civil.Offset;
       var shifted = civil.AddMonths(months.Item);
@@ -46,8 +46,8 @@ namespace QuickPBT.CS
     }
 
     /* idempotence ... the property of an action having the same effect no matter how many times it occurs */
-    [Property, Trait ("section", "patterns")]
-    public static Boolean Taking_TimeDuration_IsIdempotent (time value)
+    [Property, Trait ("group", "patterns")]
+    public static Boolean Taking_TimeDuration_IsIdempotent(time value)
     {
       var once  = value.Duration();
       var twice = value.Duration().Duration();

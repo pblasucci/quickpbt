@@ -16,8 +16,8 @@ namespace QuickPBT.CS
   public static class Filtered
   {
     /* naive test fails (because the range of inputs is too broad) */
-    [Property, Trait("section", "filtered")]
-    public static Boolean DaylightSavings_TestOracle_Naive (date civil)
+    [Property, Trait("group", "filtered")]
+    public static Boolean DaylightSavings_TestOracle_Naive(date civil)
     {
       /**
         NOTE: this test also demonstrates the common pattern of the 
@@ -32,8 +32,8 @@ namespace QuickPBT.CS
     }
 
     /* uses a conditional property to ensure only valid inputs are used */
-    [Property, Trait("section", "filtered")]
-    public static Property DaylightSavings_TestOracle_Conditional (date civil)
+    [Property, Trait("group", "filtered")]
+    public static Property DaylightSavings_TestOracle_Conditional(date civil)
     {
       var eastern   = zone.FindSystemTimeZoneById("Eastern Standard Time");
       var eastDate  = zone.ConvertTime(civil, eastern);
@@ -44,8 +44,8 @@ namespace QuickPBT.CS
     }
 
     /* instead of a conditional property, here we use a IArbitrary with a "universal quantifier" */
-    [Property, Trait ("section", "filtered")]
-    public static Property TimeZoneInfo_IsUnchanged_RoundTripSerialization ()
+    [Property, Trait ("group", "filtered")]
+    public static Property TimeZoneInfo_IsUnchanged_RoundTripSerialization()
     {
       // arbitrary generators can be easily defined
       var zones = Gen.Elements(from z in zone.GetSystemTimeZones() select z)

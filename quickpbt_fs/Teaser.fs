@@ -9,7 +9,7 @@ module Teaser =
   let DaysInAWeek   = 7
   let HoursInAWeek  = DaysInAWeek * 24 // hours in a day
 
-  [<Fact; Trait ("section","teaser")>]
+  [<Fact; Trait ("group","teaser")>]
   let DaysShouldEqualHours () =
     let days  = time.FromDays  DaysInAWeek
     let hours = time.FromHours HoursInAWeek
@@ -17,7 +17,7 @@ module Teaser =
         
     Assert.Equal (civil + days,civil + hours)
 
-  [<Property; Trait ("section","teaser")>]
+  [<Property; Trait ("group","teaser")>]
   let ``the unit of time should not effect addition`` (civil :date) =
     let days  = time.FromDays  DaysInAWeek
     let hours = time.FromHours HoursInAWeek

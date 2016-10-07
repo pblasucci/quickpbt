@@ -17,9 +17,9 @@ let [<Literal>] TestReport = "TestResults.html"
 let configure (args :XUnit2Params) =
   { args with
       ToolPath        = "packages/xunit.runner.console/tools/xunit.console.exe"
-      IncludeTraits   = "section" 
+      IncludeTraits   = "group" 
                         |> splitEnvironVar
-                        |> List.map (fun v -> ("section",v))
+                        |> List.map (fun v -> ("group",v))
       HtmlOutputPath  = Some TestReport }
 
 /// launched HTML report (after doing a bit of reformating)

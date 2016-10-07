@@ -7,7 +7,7 @@ Public NotInheritable Class Teaser
   Dim DaysInAWeek   = 7
   Dim HoursInAWeek  = DaysInAWeek * 24 ' hours in a day
 
-  <Fact, Trait("section", "teaser")>
+  <Fact, Trait("group", "teaser")>
   Public Sub DaysShouldEqualHours ()
     Dim days  = Time.FromDays(DaysInAWeek)
     Dim hours = Time.FromHours(HoursInAWeek)
@@ -16,7 +16,7 @@ Public NotInheritable Class Teaser
     Assert.Equal (civil + days,civil + hours)
   End Sub
 
-  <[Property], Trait("section", "teaser")>
+  <[Property], Trait("group", "teaser")>
   Public Function UnitOfTime_ShouldNot_EffectAddition (civil As Dated) As Boolean
     Dim days  = Time.FromDays(DaysInAWeek)
     Dim hours = time.FromHours(HoursInAWeek)
