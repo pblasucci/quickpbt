@@ -43,7 +43,7 @@ namespace QuickPBT.CS
       return check.When(filter);
     }
 
-    /* instead of a condtional property, here we use a IArbitrary with a "universal quantifier" */
+    /* instead of a conditional property, here we use a IArbitrary with a "universal quantifier" */
     [Property, Trait ("section", "filtered")]
     public static Property TimeZoneInfo_IsUnchanged_RoundTripSerialization ()
     {

@@ -33,7 +33,7 @@ namespace QuickPBT.CS
       var days  = time.FromDays(daysInAWeek);
       var hours = time.FromHours(hoursInAWeek);
       //NOTE: lots of different, random date values
-      
+
       return (civil + days == civil + hours);
     }
   }

@@ -27,7 +27,7 @@ Public NotInheritable Class Filtered
     Return check.When(filter)      
   End Function
 
-  ' instead of a condtional property, here we use a IArbitrary with a "universal quantifier"
+  ' instead of a conditional property, here we use a IArbitrary with a "universal quantifier"
   <[Property], Trait("section", "filtered")>
   Public Function TimeZoneInfo_IsUnchanged_RoundTripSerialization () As [Property]
     ' arbitrary generators can be easily defined

@@ -53,7 +53,7 @@
   <ItemGroup>
     <Reference Include="FsCheck, Version=2.6.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FsCheck\src\FsCheck\bin\Release\FsCheck.dll</HintPath>
+      <HintPath>..\..\..\FsCheck\src\FsCheck\bin\Release\FsCheck.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

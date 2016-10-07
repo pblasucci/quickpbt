@@ -8,11 +8,10 @@ Public NotInheritable Class Patterns
   <[Property], Trait("section", "patterns")>
   Public Function Adding_SubtractingDays_AreInverses (civil As Dated, total As PositiveInt) As Boolean
     Dim days = Time.FromDays(total)
-    
     Return (civil + days) - days = civil
   End Function
 
-  ' interchange ... the property by which the order of two Or more actions does Not affect the outcome
+  ' interchange ... the property by which the order of two or more actions does Not affect the outcome
   <[Property], Trait("section", "patterns")>
   Public Function Adding_ChangingZone_CanBeReordered (civil As Dated, total As PositiveInt) As Boolean
     Dim pacStd = "Pacific Standard Time"

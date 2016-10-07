@@ -26,9 +26,9 @@ module Filtered =
     let eastDate  = zone.ConvertTime (civil,eastern)
     ( civil.Year >= 2007 
       && eastern.IsDaylightSavingTime eastDate ) 
-      ==> lazy (Zone.inUnitedStatesDaylightTime eastDate)
+      ==> lazy Zone.inUnitedStatesDaylightTime eastDate
 
-  (* instead of a condtional property, here we use a IArbitrary with a "universal quantifier" *)
+  (* instead of a conditional property, here we use a IArbitrary with a "universal quantifier" *)
   [<Property; Trait ("section","filtered")>]
   let ``zone is unchanged through round-trip serialization`` () =
     // arbitrary generators can be easily defined

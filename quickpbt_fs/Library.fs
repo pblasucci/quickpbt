@@ -29,7 +29,8 @@ module internal Libary =
     PositiveTime value
 
   /// cheap helper to get prettier diagnostic output
-  type Divisibility = Even | Odd
+  type Divisibility = Even | Odd with
+    override self.ToString () = match self with Even -> "Even" | Odd -> "Odd"
 
   /// contains functions for approximating System.TimeZoneInfo behavior
   module Zone = 

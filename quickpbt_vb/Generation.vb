@@ -19,8 +19,8 @@ Friend Module Generator
       Select  New PositiveTime(t)
     Dim shrinker As Func(Of PositiveTime,IEnumerable(Of PositiveTime)) = 
       Function (posTime)
-          Return From   t in Arb.Shrink(posTime.Value)
-                 Where  t > time.Zero
+          Return From   t In Arb.Shrink(posTime.Value)
+                 Where  t > Time.Zero
                  Select New PositiveTime(t)
       End Function
 
@@ -53,7 +53,7 @@ Public NotInheritable Class Generation
   ''' </summary>
   <Fact, Trait("section", "generation")>
   Public Sub PositiveTimeDistribution ()
-    Me.output.WriteLine("\n[Distribution of 100 PositiveTime Instances]\n")
+    Me.output.WriteLine(vbNewLine & "[Distribution of 100 PositiveTime Instances]" & vbNewLine)
     For Each pair In Generator.PositiveTime().Distribute(5,100)
       Dim posTime = pair.Item1
       Dim count   = pair.Item2
@@ -69,7 +69,7 @@ Public NotInheritable Class Generation
   ''' </summary>
   <Fact, Trait("section", "generation")>
   Public Sub TimeZoneInfoDistribution ()
-    Me.output.WriteLine("\n[Distribution of 100 TimeZoneInfo Instances]\n")
+    Me.output.WriteLine(vbNewLine & "[Distribution of 100 TimeZoneInfo Instances]" & vbNewLine)
     Dim zones   = Generator.TimeZoneInfo()    _
                            .Distribute(1,100) _
                            .ToList()

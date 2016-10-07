@@ -32,7 +32,9 @@ module Labels =
   let ``zone conversion is not affected by detours (corrected)`` (civil :date) (zone1 :zone) (zone2 :zone) =
     let viaZone1  = zone.ConvertTime (zone.ConvertTime (civil,zone1),zone2)
     let directly  = zone.ConvertTime (civil,zone2)
-    (viaZone1 = directly)
+    let sameDate  = (viaZone1 = directly)
+    let sameShift = (directly.Offset = zone2.GetUtcOffset directly) // note that we had the wrong check previously
+    sameDate  |@ sprintf "Same Date?  (%A = %A)" viaZone1 directly
     .&.
-    (directly.Offset = zone2.GetUtcOffset directly) // note that we had the wrong check previously
+    sameShift |@ sprintf "Same Shift? (%A = %A)" zone2.BaseUtcOffset directly.Offset 
     
