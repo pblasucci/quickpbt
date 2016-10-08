@@ -3,8 +3,8 @@ framework: net452
 source https://api.nuget.org/v3/index.json
 
 nuget FAKE
-nuget FsCheck 2.6.1
-nuget FsCheck.Xunit 2.6.1
+nuget FsCheck 2.6.2
+nuget FsCheck.Xunit 2.6.2
 nuget FSharp.Core 3.1.2.5
 nuget xunit 2.1.0
 nuget xunit.abstractions 2.0.0
