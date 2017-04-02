@@ -2,13 +2,10 @@
 using System.Globalization;
 using System.Linq;
 
+using static Microsoft.VisualBasic.DateAndTime;
+
 namespace QuickPBT.CS
 {
-  /// <summary>
-  /// cheap helper to get prettier diagnostic output
-  /// </summary>
-  public enum Divisibility { Even = 0, Odd = 1 };
-
   /// <summary>
   /// represent a time value which is always greater then zero (> 0)
   /// (note: only meant for use with FsCheck's generation functionality)
@@ -21,7 +18,7 @@ namespace QuickPBT.CS
     {
       // PositiveTime encapsulates the following domain rules
       if (value <= TimeSpan.Zero)
-        { throw new ArgumentException("value must be greater than 0", nameof(value)); }
+      { throw new ArgumentException("value must be greater than 0", nameof(value)); }
 
       this.Value = value;
     }
@@ -54,12 +51,12 @@ namespace QuickPBT.CS
       var monthDays = cal.GetDaysInMonth(year, month);
       var nthBounds = numDays - 1;
 
-      var days  = from dayNum in Enumerable.Range(1, monthDays)
-                  select new DateTime(year, month, dayNum);
-      var weeks = from  day in days
+      var days = from dayNum in Enumerable.Range(1, monthDays)
+                 select new DateTime(year, month, dayNum);
+      var weeks = from day in days
                   group day by day.DayOfWeek into dayOfWeek
-                  where   dayOfWeek.Key == weekDay
-                  select  dayOfWeek.Skip(nthBounds).First();
+                  where dayOfWeek.Key == weekDay
+                  select dayOfWeek.Skip(nthBounds).First();
 
       return weeks.Single();
     }
@@ -76,16 +73,30 @@ namespace QuickPBT.CS
       {
         // very near boundaries
         case 3:
-          var secondSunday = NthDay(2,DayOfWeek.Sunday,civil.Year,3);
+          var secondSunday = NthDay(2, DayOfWeek.Sunday, civil.Year, 3);
           return civil.Day >= secondSunday.Day;
         case 11:
-          var firstSunday = NthDay(1,DayOfWeek.Sunday,civil.Year,11);
+          var firstSunday = NthDay(1, DayOfWeek.Sunday, civil.Year, 11);
           return civil.Day <= firstSunday.Day;
         // away from boundaries
         default:
           if (civil.Month < 3 || civil.Month > 11) { return false; }
           return true;
       }
+    }
+  }
+
+  /// <summary>
+  /// contains miscellaneous functions for working 
+  /// with DateTime, DateTimeOffset, and TimeSpan instances
+  /// </summary>
+  public static class DateAndTimeExtensions
+  {
+    /// <summary>
+    /// /// Gets the textual value of the day of the week for a given date
+    public static String DayOfWeekName(this DateTimeOffset value)
+    {
+      return WeekdayName((Int32) value.Date.DayOfWeek);
     }
   }
 }

@@ -2,8 +2,6 @@
 Imports Time  = System.TimeSpan
 Imports Zone  = System.TimeZoneInfo
 
-Imports QuickPBT.VB.Divisibility
-
 ''' <summary>
 ''' contains examples of gathering diagnostics abour generated data
 ''' </summary>
@@ -40,7 +38,7 @@ Public NotInheritable Class Observations
     Dim addThenShift = Zone.ConvertTime(civil + days, target)
     Dim shiftThenAdd = Zone.ConvertTime(civil, target) + days
     
-    Return (addThenShift = shiftThenAdd).Collect(IIf(total.Item Mod 2 = 0, Even, Odd))
+    Return (addThenShift = shiftThenAdd).Collect(WeekdayName(civil.DayOfWeek))
   End Function
 
   ' observations may be combined as mush as is desired
@@ -55,6 +53,6 @@ Public NotInheritable Class Observations
                                         .Classify(civil.Offset < Time.Zero, "West of Greenwich")  _
                                         .Classify(civil.Offset = Time.Zero, "Within Greenwich" )  _
                                         .Classify(civil.Offset > Time.Zero, "East of Greenwich")  _
-                                        .Collect(IIf(total.Item Mod 2 = 0, Even, Odd))
+                                        .Collect(WeekdayName(civil.DayOfWeek))
   End Function
 End Class

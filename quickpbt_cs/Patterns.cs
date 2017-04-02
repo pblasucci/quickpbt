@@ -14,7 +14,7 @@ namespace QuickPBT.CS
   /// </summary>
   public static class Patterns
   {
-    /* inversion ... the property by which an action and its inverse cancel out */
+    /* inversion ... the property by which one action “undoes” the work of another action */
     [Property, Trait("group", "patterns")]    
     public static Boolean Adding_SubtractingDays_AreInverses(date civil, PositiveInt total)
     {

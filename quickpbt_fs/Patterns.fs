@@ -6,7 +6,7 @@ open FsCheck.Xunit
 
 /// demonstrates testing for very common properties
 module Patterns = 
-  (* inversion ... the property by which an action and its inverse cancel out *)
+  (* inversion ... the property by which one action “undoes” the work of another action *)
   [<Property; Trait ("group","patterns")>]
   let ``adding and subtracting days are inverses`` (civil :date) (PositiveInt total) =
     let days = time.FromDays total

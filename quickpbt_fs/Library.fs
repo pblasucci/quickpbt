@@ -1,5 +1,6 @@
 ﻿namespace QuickPBT.FS
 
+open Microsoft.VisualBasic
 open System
 open System.Globalization
 
@@ -13,6 +14,10 @@ module internal Libary =
   type date = System.DateTimeOffset
   type time = System.TimeSpan
   type zone = System.TimeZoneInfo
+  
+  /// Gets the textual value of the day of the week for a given date
+  let weekdayName (value :date) = 
+    value.Date.DayOfWeek |> int |> DateAndTime.WeekdayName
 
   /// extension members to facilitate using TimeSpan with Int32
   type System.TimeSpan with
@@ -28,15 +33,11 @@ module internal Libary =
       invalidArg "value" "value must be greater than 0"
     PositiveTime value
 
-  /// cheap helper to get prettier diagnostic output
-  type Divisibility = Even | Odd with
-    override self.ToString () = match self with Even -> "Even" | Odd -> "Odd"
-
   /// contains functions for approximating System.TimeZoneInfo behavior
   module Zone = 
     let private cal = CultureInfo.CurrentCulture.Calendar
     
-    /// determines the Nth weekday for a given month of a given year (e.g. 2nd Sunday in March 2016)
+    /// determines the Nth weekday for a given month of a given year (e.g. 2nd Sunday in March 2016)                   
     let nthDay (numDays,weekDay) (year,month) =
       let monthDays = cal.GetDaysInMonth (year,month)
       let nthBounds = numDays - 1
