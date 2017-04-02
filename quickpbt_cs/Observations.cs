@@ -6,8 +6,6 @@ using date = System.DateTimeOffset;
 using time = System.TimeSpan;
 using zone = System.TimeZoneInfo;
 
-using static QuickPBT.CS.Divisibility;
-
 namespace QuickPBT.CS
 {
   /// <summary>
@@ -50,7 +48,7 @@ namespace QuickPBT.CS
       var addThenShift = zone.ConvertTime(civil + days, target);
       var shiftThenAdd = zone.ConvertTime(civil, target) + days;
     
-      return (addThenShift == shiftThenAdd).Collect((total.Item % 2 == 0) ? Even : Odd);
+      return (addThenShift == shiftThenAdd).Collect(civil.DayOfWeekName());
     }
 
     /* observations may be combined as mush as is desired */
@@ -66,7 +64,7 @@ namespace QuickPBT.CS
                                            .Classify(civil.Offset <  time.Zero, "West of Greenwich")
                                            .Classify(civil.Offset == time.Zero, "Within Greenwich" )
                                            .Classify(civil.Offset  > time.Zero, "East of Greenwich")
-                                           .Collect((total.Item % 2 == 0) ? Even : Odd);
+                                           .Collect(civil.DayOfWeekName());
     }
   }
 }

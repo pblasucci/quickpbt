@@ -4,7 +4,7 @@ Imports Zone  = System.TimeZoneInfo
 
 ''' demonstrates testing for very common properties
 Public NotInheritable Class Patterns
-  ' inversion ... the property by which an action and its inverse cancel out
+  ' inversion ... the property by which one action “undoes” the work of another action
   <[Property], Trait("group", "patterns")>
   Public Function Adding_SubtractingDays_AreInverses (civil As Dated, total As PositiveInt) As Boolean
     Dim days = Time.FromDays(total)

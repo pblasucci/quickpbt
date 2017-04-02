@@ -3,14 +3,6 @@ Imports Time  = System.TimeSpan
 Imports Zone  = System.TimeZoneInfo
   
 ''' <summary>
-''' cheap helper to get prettier diagnostic output
-''' </summary>
-Public Enum Divisibility 
-  Even  = 0
-  Odd   = 1
-End Enum
-
-''' <summary>
 ''' represent a time value which is always greater then zero (> 0)
 ''' (note: only meant for use with FsCheck's generation functionality)
 ''' </summary>

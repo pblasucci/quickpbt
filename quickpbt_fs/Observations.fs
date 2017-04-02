@@ -39,7 +39,7 @@ module Observations =
     let shiftThenAdd = zone.ConvertTime (civil,target) + days
     
     addThenShift = shiftThenAdd
-      |> Prop.collect (if total % 2 = 0 then Even else Odd)
+      |> Prop.collect (weekdayName civil)
 
   (* observations may be combined as mush as is desired *)
   [<Property (Arbitrary=[| typeof<Generator> |]); Trait ("group","observations")>]
@@ -54,4 +54,4 @@ module Observations =
       |> Prop.classify  (civil.Offset < time.Zero) "West of Greenwich"
       |> Prop.classify  (civil.Offset = time.Zero) "Within Greenwich"
       |> Prop.classify  (civil.Offset > time.Zero) "East of Greenwich"
-      |> Prop.collect   (if total % 2 = 0 then Even else Odd)
+      |> Prop.collect   (weekdayName civil)
