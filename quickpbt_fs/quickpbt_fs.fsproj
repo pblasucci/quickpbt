@@ -5,7 +5,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Program.fs" />
+    <Compile Include="Library.fs" />
+    <Compile Include="Generation.fs" />
+    <Compile Include="Patterns.fs" />
+    <Compile Include="Teaser.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
