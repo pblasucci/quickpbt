@@ -1,0 +1,10 @@
+storage: none
+
+source https://www.nuget.org/api/v2
+
+nuget FsCheck
+nuget FsCheck.Xunit
+nuget FSharp.Core
+nuget Microsoft.NET.Test.Sdk
+nuget xunit
+nuget xunit.runner.visualstudio
