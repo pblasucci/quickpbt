@@ -5,8 +5,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DomainUnderTest.fs" />
     <Compile Include="Library.fs" />
+    <Compile Include="Filtered.fs" />
     <Compile Include="Generation.fs" />
+    <Compile Include="Observations.fs" />
+    <Compile Include="Labelled.fs" />
     <Compile Include="Patterns.fs" />
     <Compile Include="Teaser.fs" />
   </ItemGroup>

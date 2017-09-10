@@ -4,6 +4,8 @@ open Xunit
 open FsCheck
 open FsCheck.Xunit
 
+open DomainUnderTest
+
 /// Contrasts a unit test with a property test
 module Teaser =
   let daysInAWeek   =  7
@@ -19,9 +21,9 @@ module Teaser =
     Assert.Equal(days, hours)
 
   [<Property>]
-  let ``unit of time should not effect addition`` (today :Date) =
+  let ``unit of time should not effect addition`` (anyDate :Date) =
     //NOTE: lots of different, random values
-    let days  = today + Time.FromDays(daysInAWeek)
-    let hours = today + Time.FromHours(hoursInAWeek)
+    let days  = anyDate + Time.FromDays(daysInAWeek)
+    let hours = anyDate + Time.FromHours(hoursInAWeek)
 
     days = hours
