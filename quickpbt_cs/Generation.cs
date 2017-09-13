@@ -152,7 +152,7 @@ namespace quickpbt
     /// <summary>
     /// demonstrates attaching a collection of IArbitrary instances to a tests  
     /// </summary>
-    [Property(Arbitrary=new []{ typeof(Generator) })]
+    [Property(Arbitrary = new []{ typeof(Generator) })]
     public bool zone_is_unchanged_through_round_trip_serialization(Zone anyZone)
       /**
       NOTE: since we've registered our generator, FsCheck will automatically

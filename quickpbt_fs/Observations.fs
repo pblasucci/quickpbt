@@ -11,7 +11,7 @@ open DomainUnderTest
 module Observations =
   /// a trival observation partions data into one of two buckets
   [<Property>]
-  let ``supports daylight savings (trivial)`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
+  let ``trivial daylight savings support`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
 
     let addThenShift = Zone.ConvertTime(anyDate + days, anyZone)
@@ -22,7 +22,7 @@ module Observations =
 
   /// a classification partions data into one of N, labelled buckets
   [<Property>]
-  let ``relative meridian position (classify)`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
+  let ``classify meridian position`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
 
     let addThenShift = Zone.ConvertTime(anyDate + days, anyZone)
@@ -35,7 +35,7 @@ module Observations =
 
   /// rather than using a boolean observation, collect reports any value
   [<Property>]
-  let ``divisibility of added days (collect)`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
+  let ``collect weekday name`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
 
     let addThenShift = Zone.ConvertTime(anyDate + days, anyZone)

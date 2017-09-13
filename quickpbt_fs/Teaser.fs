@@ -6,7 +6,7 @@ open FsCheck.Xunit
 
 open DomainUnderTest
 
-/// Contrasts a unit test with a property test
+/// contrasts a unit test with a property test
 module Teaser =
   let daysInAWeek   =  7
   let hoursInAWeek  = 24 * daysInAWeek

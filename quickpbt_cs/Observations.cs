@@ -19,7 +19,7 @@ namespace quickpbt
     /// a trival observation partions data into one of two buckets 
     /// </summary>
     [Property]
-    public Property supports_daylight_savings_trivial(Date anyDate, Zone anyZone, NonNegativeInt total)
+    public Property trivial_daylight_savings_support(Date anyDate, Zone anyZone, NonNegativeInt total)
     { 
       var days = Time.FromDays((int) total);
 
@@ -33,7 +33,7 @@ namespace quickpbt
     /// a classification partions data into one of N, labelled buckets
     /// </summary>
     [Property]
-    public Property supports_daylight_savings_classify(Date anyDate, Zone anyZone, NonNegativeInt total)
+    public Property classify_meridian_position(Date anyDate, Zone anyZone, NonNegativeInt total)
     { 
       var days = Time.FromDays((int) total);
 
@@ -50,7 +50,7 @@ namespace quickpbt
     /// rather than using a boolean observation, collect reports any value
     /// </summary>
     [Property]
-    public Property supports_daylight_savings_collect(Date anyDate, Zone anyZone, NonNegativeInt total)
+    public Property collect_weekday_name(Date anyDate, Zone anyZone, NonNegativeInt total)
     { 
       var days = Time.FromDays((int) total);
 

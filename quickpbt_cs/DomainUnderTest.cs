@@ -30,9 +30,6 @@ namespace quickpbt
         .First();
     }
 
-    private static DateTime SecondSunday(int year, int month) => NthDay((2,DayOfWeek.Sunday), (year,month));
-    private static DateTime  FirstSunday(int year, int month) => NthDay((1,DayOfWeek.Sunday), (year,month));
-
     /// <summary>
     /// determines (approximately) if a DateTimeOffset is within Daylight Saving Time
     /// (note: only applies post-2007 rules and only for years 2007 or later)
@@ -46,12 +43,12 @@ namespace quickpbt
       {
         // very near boundaries
         case var mar when (mar == 3):
-          var sndSun = SecondSunday(year, mar);
-          return value.Day >= sndSun.Day;
+          var secondSunday = NthDay((2, DayOfWeek.Sunday), (year, mar));
+          return value.Day >= secondSunday.Day;
 
         case var nov when (nov == 11):
-          var fstSun = FirstSunday(year, nov);
-          return value.Day <= fstSun.Day;
+          var firstSunday = NthDay((1, DayOfWeek.Sunday), (year, nov));
+          return value.Day <= firstSunday.Day;
 
         // away from boundaries
         case var month when (month < 3 || month > 11):

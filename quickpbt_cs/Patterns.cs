@@ -14,6 +14,12 @@ namespace quickpbt
   /// </summary>
   public sealed class Patterns
   {
+    static readonly string CentralEuroTime = Platform.As(
+        win:  () => "Central Europe Standard Time",
+        osx:  () => "Europe/Amsterdam",
+        unix: () => throw new PlatformNotSupportedException()
+    );
+
     /// <summary>
     /// inversion ... the property by which one action “undoes” the work of another action
     /// </summary>
@@ -32,14 +38,9 @@ namespace quickpbt
     public bool adding_and_changing_zone_can_be_reordered(Date anyDate, PositiveInt total)
     {
       var days    = Time.FromDays((int) total);
-      var cetStd  = Platform.As(
-        win:  () => "Central Europe Standard Time",
-        osx:  () => "Europe/Amsterdam",
-        unix: () => throw new PlatformNotSupportedException()
-      );
       
-      var addThenShift = Zone.ConvertTimeBySystemTimeZoneId(anyDate + days, cetStd);
-      var shiftThenAdd = Zone.ConvertTimeBySystemTimeZoneId(anyDate, cetStd) + days;
+      var addThenShift = Zone.ConvertTimeBySystemTimeZoneId(anyDate + days, CentralEuroTime);
+      var shiftThenAdd = Zone.ConvertTimeBySystemTimeZoneId(anyDate, CentralEuroTime) + days;
 
       return addThenShift == shiftThenAdd;
     }

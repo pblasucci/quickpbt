@@ -46,7 +46,7 @@ namespace quickpbt
       var eastern   = Zone.FindSystemTimeZoneById(ZoneName);
       var eastDate  = Zone.ConvertTime(anyDate, eastern);
 
-      bool check() => ZoneUtils.InUnitedStatesDaylightTime(eastDate) == eastern.IsDaylightSavingTime(eastDate);
+      bool check() => ZoneUtils.InUnitedStatesDaylightTime(eastDate);
       
       return check().When(anyDate.Year >= 2007 && eastern.IsDaylightSavingTime(eastDate));
     }

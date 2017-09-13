@@ -8,14 +8,24 @@ namespace quickpbt
   /// </summary>
   public static class Platform
   {
+    /// <summary>
     /// true on Windows platforms
+    /// </summary>
     public static readonly bool IsWin = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+    
+    /// <summary>
     /// true on Apple platforms
+    /// </summary>
     public static readonly bool IsMac = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+    
+    /// <summary>
     /// true on *nix platforms
+    /// </summary>
     public static readonly bool IsUnix = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
 
+    /// <summary>
     /// executes the appropriate function based on OS platform
+    /// </summary>
     public static TResult As<TResult>(Func<TResult> win, Func<TResult> osx, Func<TResult> unix)
     { 
       if (IsWin) { return win(); }
