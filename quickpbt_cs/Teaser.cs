@@ -12,7 +12,7 @@ namespace quickpbt
   /// <summary>
   /// Contrasts a unit test with a property test
   /// </summary>
-  public class Teaser
+  public sealed class Teaser
   {
     static readonly int DaysInAWeek   =  7;
     static readonly int HoursInAWeek  = 24 * DaysInAWeek;

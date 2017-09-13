@@ -1,18 +1,15 @@
 namespace quickpbt
 
-open Xunit
-open Xunit.Abstractions
 open FsCheck
 open FsCheck.Xunit
 
 open DomainUnderTest
 
 /// contains examples of gathering diagnostics abour generated data
-///
 /// (NOTE: `dotnet test` requires a `--verbosity` of *at least* 'normal' to see observations on the command line)
 [<Properties(Arbitrary=[| typeof<Generator> |])>]
 module Observations =
-  (* a trival observation partions data into one of two buckets *)
+  /// a trival observation partions data into one of two buckets
   [<Property>]
   let ``supports daylight savings (trivial)`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
@@ -23,7 +20,7 @@ module Observations =
     addThenShift = shiftThenAdd
       |> Prop.trivial anyZone.SupportsDaylightSavingTime
 
-  (* a classification partions data into one of N, labelled buckets *)
+  /// a classification partions data into one of N, labelled buckets
   [<Property>]
   let ``relative meridian position (classify)`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
@@ -36,7 +33,7 @@ module Observations =
       |> Prop.classify (anyDate.Offset = Time.Zero) "Within Greenwich"
       |> Prop.classify (anyDate.Offset > Time.Zero) "East of Greenwich"
 
-  (* rather than using a boolean observation, collect reports any value *)
+  /// rather than using a boolean observation, collect reports any value
   [<Property>]
   let ``divisibility of added days (collect)`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
@@ -47,7 +44,7 @@ module Observations =
     addThenShift = shiftThenAdd
       |> Prop.collect (weekdayName anyDate)
 
-  (* observations may be combined as mush as is desired *)
+  /// observations may be combined as mush as is desired
   [<Property>]
   let ``many observations combined`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)

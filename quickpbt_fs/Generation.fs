@@ -31,8 +31,8 @@ type Generator =
     |> Gen.elements
     |> Arb.fromGen
 
-  /// generates PositiveTime instances by leveraging FsCheck's built-in
-  /// support for generating and shrinking TimeSpan instances
+  /// generates PositiveTime instances by leveraging FsCheck's
+  /// built-in support for generating and shrinking TimeSpan instances
   static member PositiveTime =
     let inline isPositive t = t > Time.Zero
     Arb.fromGenShrink
@@ -47,6 +47,7 @@ type Generator =
           |> Seq.map positiveTime) )
 
 /// shows examples of working with data generation (in and out of property tests)
+/// (NOTE: `dotnet test` requires a `--verbosity` of *at least* 'normal' to see distribution info on the command line)
 type Generation(out :ITestOutputHelper) =
   (**
     NOTE: here we're using a primary-constructor class, rather than a module,
@@ -56,42 +57,43 @@ type Generation(out :ITestOutputHelper) =
   /// generates `count` random instances of the given IArbitrary,
   /// using the given `size` as a seeding value, and returns a sequence of
   /// values paired with the number of times each value occurs in the sequence
-  let distribute size count (arb:Arbitrary<_>) =
+  let distribute size count groupBy (arb:Arbitrary<_>) =
     arb.Generator
     |> Gen.sample   size count
-    |> Seq.groupBy  id
-    |> Seq.map      (fun (key,value) -> key,Seq.length value)
-    |> Seq.sortBy   (fun (_  ,count) -> count)
+    |> Seq.groupBy  groupBy
+    |> Seq.map      (fun (_,value) -> Seq.head value,Seq.length value)
+    |> Seq.sortBy   (fun (_,count) -> count)
 
   /// reports the random distribution of 100 PositiveTime instances
   [<Fact>]
   member __.``positive time distribution``() =
     out.WriteLine("\n[Distribution of 100 PositiveTime Instances]\n")
-    Generator.PositiveTime
-    |> distribute 5 100
-    |> Seq.iter (fun (PositiveTime posTime,count) ->
-        let bar = String.replicate count "="
-        let fts = posTime.ToString "dddddddd'.'hh':'mm':'ss'.'fffffff"
-        out.WriteLine(sprintf "%25s | %2i | %s" fts count bar))
-    out.WriteLine("")
+
+    let times = Generator.PositiveTime
+                |> distribute 0 100 id
+                |> Seq.toList
+    for (PositiveTime posTime,count) in times do
+      let bar = String.replicate count "="
+      let fts = posTime.ToString "dddddddd'.'hh':'mm':'ss'.'fffffff"
+      out.WriteLine(sprintf "%25s | %2i | %s" fts count bar)
 
   /// reports the random distribution of 100 TimeZoneInfo instances
   [<Fact>]
   member __.``time zone info distribution``() =
     out.WriteLine("\n[Distribution of 100 TimeZoneInfo Instances]\n")
+
     let zones   = Generator.TimeZoneInfo
-                  |> distribute 1 100
+                  |> distribute 0 100 (fun z -> z.BaseUtcOffset)
                   |> Seq.toList
     let length  = ( zones
                     |> Seq.map (fun (z,_) -> z.StandardName.Length)
                     |> Seq.max )
                   + 4
-    zones
-    |> Seq.iter (fun (zone,count) ->
-        let bar   =  "=" |> String.replicate count
-        let name  = zone.StandardName
-        out.WriteLine(sprintf "%-*s | %2i | %s" length name count bar))
-    out.WriteLine("")
+
+    for (zone,count) in zones do
+      let bar   =  "=" |> String.replicate count
+      let name  = zone.StandardName
+      out.WriteLine(sprintf "%-*s | %2i | %s" length name count bar)
 
   /// demonstrates attaching a collection of IArbitrary instances to a tests
   [<Property(Arbitrary=[| typeof<Generator> |])>]
@@ -101,5 +103,11 @@ type Generation(out :ITestOutputHelper) =
             create `zone`s for use in testing... for fun, compare this test
             to the one with the same name in the `Filtered` module
     *)
-    let deflated = anyZone.ToSerializedString()
-    Zone.FromSerializedString deflated = anyZone
+    Platform.As
+      (win = fun () ->  let deflated = anyZone.ToSerializedString()
+                        Zone.FromSerializedString(deflated) = anyZone
+      ,osx  = fun () -> true
+      ,unix = fun () -> true)
+      (**
+        NOTE: there is a known issue with deseriazing TimeZoneInfo on non-Windows OSes
+      *)

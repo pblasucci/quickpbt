@@ -1,6 +1,6 @@
-using Xunit;
 using FsCheck;
 using FsCheck.Xunit;
+using System;
 
 namespace quickpbt
 {
@@ -12,7 +12,7 @@ namespace quickpbt
   /// <summary>
   /// demonstrates testing for very common properties
   /// </summary>
-  public class Patterns
+  public sealed class Patterns
   {
     /// <summary>
     /// inversion ... the property by which one action “undoes” the work of another action
@@ -31,9 +31,13 @@ namespace quickpbt
     [Property]
     public bool adding_and_changing_zone_can_be_reordered(Date anyDate, PositiveInt total)
     {
-      var cetStd = "Europe/Amsterdam";
-      var days   = Time.FromDays((int) total);
-
+      var days    = Time.FromDays((int) total);
+      var cetStd  = Platform.As(
+        win:  () => "Central Europe Standard Time",
+        osx:  () => "Europe/Amsterdam",
+        unix: () => throw new PlatformNotSupportedException()
+      );
+      
       var addThenShift = Zone.ConvertTimeBySystemTimeZoneId(anyDate + days, cetStd);
       var shiftThenAdd = Zone.ConvertTimeBySystemTimeZoneId(anyDate, cetStd) + days;
 

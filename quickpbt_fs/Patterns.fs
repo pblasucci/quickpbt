@@ -1,6 +1,5 @@
 namespace quickpbt
 
-open Xunit
 open FsCheck
 open FsCheck.Xunit
 
@@ -19,8 +18,11 @@ module Patterns =
   /// interchange ... the property by which the order of two or more actions does not affect the outcome
   [<Property>]
   let ``adding & changing zone can be reordered`` (anyDate :Date) (PositiveInt total) =
-    let cetStd = "Europe/Amsterdam"
-    let days   = Time.FromDays(total)
+    let days    = Time.FromDays(total)
+    let cetStd  = Platform.As
+                    (win  = fun () -> "Central Europe Standard Time"
+                    ,osx  = fun () -> "Europe/Amsterdam"
+                    ,unix = fun () ->  failwith "platform not supported")
 
     let addThenShift = Zone.ConvertTimeBySystemTimeZoneId(anyDate + days, cetStd)
     let shiftThenAdd = Zone.ConvertTimeBySystemTimeZoneId(anyDate, cetStd) + days

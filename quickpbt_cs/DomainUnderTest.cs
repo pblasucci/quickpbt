@@ -5,8 +5,6 @@ using System.Linq;
 namespace quickpbt
 {
   using Date = System.DateTimeOffset;
-  using Time = System.TimeSpan;
-  using Zone = System.TimeZoneInfo;
 
   /// <summary>
   /// contains functions for approximating System.TimeZoneInfo behavior
