@@ -22,8 +22,8 @@ module DomainUnderTest =
       |> Seq.map      (fun (_  ,days) -> days |> Seq.item nthBounds)
       |> Seq.head
 
-    let private  firstSunday = nthDay (2,DayOfWeek.Sunday)
-    let private secondSunday = nthDay (1,DayOfWeek.Sunday)
+    let private  firstSunday = nthDay (1,DayOfWeek.Sunday)
+    let private secondSunday = nthDay (2,DayOfWeek.Sunday)
 
     /// determines (approximately) if a DateTimeOffset is within Daylight Saving Time
     /// (note: only applies post-2007 rules and only for years 2007 or later)
