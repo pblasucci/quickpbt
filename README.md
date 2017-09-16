@@ -31,31 +31,37 @@ _At the time of last update, none of the projects are known to load successfully
 
 + .NET Core SDK (version 2.0 or higher)
 
-
 ### Running the Tests
 
 Navigate to the desired project folder:
-```
+```sh
 ~ > cd quickpbt/quickbot_fs/
 ```
 
 Restore any missing packages:
-```
+```sh
 ~/quickpbt/quickbot_fs> dotnet restore
 ```
 
 Execute the full test suite:
-```
+```sh
 ~/quickpbt/quickbot_fs> dotnet test
 ```
+After a rather long-ish bit of output, you should see something like the following:
+```sh
+Total tests: 19. Passed: 16. Failed: 3. Skipped: 0.
+Test Run Failed.
+Test execution time: 2.8377 Seconds
+```
+Note that, if everything runs correctly, exactly three tests should have failed (this is for demonstration purposes).
 
 Execute only tests related to a single category ("Teaser", for example):
-```
+```sh
 ~/quickpbt/quickbot_fs> dotnet test --filter=teaser
 ```
 
 Note that the tests around "Observations" and/or "Data Generation" require a change to the default verbosity for the `dotnet` CLI:
-```
+```sh
 ~/quickpbt/quickbot_fs> dotnet test --filter=observations --verbosity normal
 ```
 
