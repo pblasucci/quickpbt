@@ -8,7 +8,7 @@ open DomainUnderTest
 /// demonstrates labelling properties for diagnostic purposes
 [<Properties(Arbitrary=[| typeof<Generator> |])>]
 module Labelled =
-  /// compound property tests can lead to obtuse failures... which propery is at fault?
+  /// compound property tests can lead to obtuse failures... which property is at fault?
   [<Property>]
   let ``zone conversion is not affected by detours (naive)`` (anyDate :Date) (zone1 :Zone) (zone2 :Zone) =
     let viaZone1 = Zone.ConvertTime(Zone.ConvertTime(anyDate, zone1), zone2)
@@ -28,7 +28,7 @@ module Labelled =
 
     // if either of the following properties does not hold, its label will be printed
     sameDate  |@ sprintf "Same Date?  (%A = %A)" viaZone1 directly
-    .&. // <<< note the use a special operator to logically "and" 2 properties together
+    .&. // <<< note the use a special operator to logically "and" 2 labelled properties together
     sameShift |@ sprintf "Same Shift? (%A = %A)" zone2.BaseUtcOffset directly.Offset
 
   /// based on the knowledge gained by labelling properties, we can fix the test

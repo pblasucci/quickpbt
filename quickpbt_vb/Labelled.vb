@@ -8,10 +8,10 @@ Imports Zoned = System.TimeZoneInfo
 <Properties(Arbitrary := new Type(){ GetType(Generator) })>
 Public NotInheritable Class Labelled
   ''' <summary>
-  ''' compound property tests can lead to obtuse failures... which propery is at fault?
+  ''' compound property tests can lead to obtuse failures... which property is at fault?
   ''' </summary>
   <[Property]>
-  Public Function ZoneConversionIsNotAffectedByDetoursNaive(anyDate As Dated, zone1 As Zoned, zone2 As Zoned) As Boolean 
+  Public Function ZoneConversionIsNotAffectedByDetoursNaive(anyDate As Dated, zone1 As Zoned, zone2 As Zoned) As Boolean
     Dim viaZone1 = Zoned.ConvertTime(Zoned.ConvertTime(anyDate, zone1), zone2)
     Dim directly = Zoned.ConvertTime(anyDate, zone2)
 
@@ -31,7 +31,7 @@ Public NotInheritable Class Labelled
 
     Dim sameDate  = Function() viaZone1 = directly
     Dim sameShift = Function() directly.Offset = zone2.BaseUtcOffset
-      
+
     Return sameDate ().Label($"Same Date?  ({viaZone1} = {directly})") _
       .And(sameShift().Label($"Same Shift? ({zone2.BaseUtcOffset} = {directly.Offset})"))
     '**
@@ -40,18 +40,18 @@ Public NotInheritable Class Labelled
   End Function
 
   ''' <summary>
-  ''' FsCheck provides tools for labelling individual properties... see the .Label method
+  ''' based on the knowledge gained by labelling properties, we can fix the test
   ''' </summary>
   <[Property]>
   Public Function ZoneConversionIsNotAffectedByDetoursCorrected(anyDate As Dated,
                                                                 zone1   As Zoned,
-                                                                zone2   As Zoned) As [Property] 
+                                                                zone2   As Zoned) As [Property]
     Dim viaZone1 = Zoned.ConvertTime(Zoned.ConvertTime(anyDate, zone1), zone2)
     Dim directly = Zoned.ConvertTime(anyDate, zone2)
 
     Dim sameDate  = Function() viaZone1 = directly
     Dim sameShift = Function() directly.Offset = zone2.GetUtcOffset(directly) ' note that we had the wrong check previously
-      
+
     Return sameDate ().Label($"Same Date?  ({viaZone1} = {directly})") _
       .And(sameShift().Label($"Same Shift? ({zone2.BaseUtcOffset} = {directly.Offset})"))
   End Function

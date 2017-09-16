@@ -14,7 +14,7 @@ namespace quickpbt
   
   /// <summary>
   /// represent a time value which is always greater then zero (> 0)
-  /// (note: only meant for use with FsCheck's generation functionality)
+  /// (note: only meant for use with FsCheck's generation facilities)
   /// </summary>
   public sealed class PositiveTime
   {
@@ -93,6 +93,7 @@ namespace quickpbt
     /// <param name="arb">the IArbitrary responsible for producing instances of `T`</param>
     /// <param name="size">the FsCheck seed value</param>
     /// <param name="count">the number of data points in the distribution</param>
+    /// <param name="groupBy">generates a key value from each data point (used for grouping)</param>
     /// <returns>a sequence of tuples pairing each unique instance of `T` with its number of occurances</returns>
     public static IEnumerable<(T Item, int Count)> Distribute<T,TKey>(this Arbitrary<T> arb, int size, int count, Func<T,TKey> groupBy)
       => arb.Generator
@@ -104,7 +105,7 @@ namespace quickpbt
 
   /// <summary>
   /// shows examples of working with data generation (in and out of property tests)
-  /// (NOTE: `dotnet test` requires a `--verbosity` of *at least* 'normal' to see distribution info on the command line)
+  /// (NOTE: `dotnet test` requires a `--verbosity` of *at least* `normal` to see distribution info on the command line)
   /// </summary>
   public sealed class Generation
   { 
@@ -150,7 +151,7 @@ namespace quickpbt
     }
 
     /// <summary>
-    /// demonstrates attaching a collection of IArbitrary instances to a tests  
+    /// demonstrates attaching a collection of IArbitrary instances to a test  
     /// </summary>
     [Property(Arbitrary = new []{ typeof(Generator) })]
     public bool zone_is_unchanged_through_round_trip_serialization(Zone anyZone)

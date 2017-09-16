@@ -4,16 +4,16 @@ Imports Timed = System.TimeSpan
 Imports Zoned = System.TimeZoneInfo
 
 ''' <summary>
-''' contains examples of gathering diagnostics abour generated data
+''' contains examples of gathering diagnostics about generated data
 ''' (NOTE: `dotnet test` requires a `--verbosity` of *at least* 'normal' to see observations on the command line)
 ''' </summary>
 <Properties(Arbitrary := new Type(){ GetType(Generator) })>
 Public NotInheritable Class Observations
   ''' <summary>
-  ''' a trival observation partions data into one of two buckets
+  ''' a trival observation partitions data into one of two buckets
   ''' </summary>
   <[Property]>
-  Public Function TrivialDaylightSavingsSupport(anyDate As Dated, anyZone As ZOned, total As NonNegativeInt) As [Property]
+  Public Function TrivialDaylightSavingsSupport(anyDate As Dated, anyZone As Zoned, total As NonNegativeInt) As [Property]
     Dim days = Timed.FromDays(CInt(total))
 
     Dim addThenShift = Zoned.ConvertTime(anyDate + days, anyZone)
@@ -23,7 +23,7 @@ Public NotInheritable Class Observations
   End Function
 
   ''' <summary>
-  ''' a classification partions data into one of N, labelled buckets
+  ''' a classification partitions data into one of N, labelled buckets
   ''' </summary>
   <[Property]>
   Public Function ClassifyMeridianPosition(anyDate As Dated, anyZone As ZOned, total As NonNegativeInt) As [Property]

@@ -9,14 +9,14 @@ namespace quickpbt
   using Zone = System.TimeZoneInfo;
 
   /// <summary>
-  /// contains examples of gathering diagnostics abour generated data
-  /// (NOTE: `dotnet test` requires a `--verbosity` of *at least* 'normal' to see observations on the command line)
+  /// contains examples of gathering diagnostics about generated data
+  /// (NOTE: `dotnet test` requires a `--verbosity` of *at least* `normal` to see observations on the command line)
   /// </summary>
   [Properties(Arbitrary = new []{ typeof(Generator) })]
   public sealed class Observations
   {
     /// <summary>
-    /// a trival observation partions data into one of two buckets 
+    /// a trival observation partitions data into one of two buckets 
     /// </summary>
     [Property]
     public Property trivial_daylight_savings_support(Date anyDate, Zone anyZone, NonNegativeInt total)
@@ -30,7 +30,7 @@ namespace quickpbt
     }
 
     /// <summary>
-    /// a classification partions data into one of N, labelled buckets
+    /// a classification partitions data into one of N, labelled buckets
     /// </summary>
     [Property]
     public Property classify_meridian_position(Date anyDate, Zone anyZone, NonNegativeInt total)

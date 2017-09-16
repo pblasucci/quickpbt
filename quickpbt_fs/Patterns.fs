@@ -7,6 +7,9 @@ open DomainUnderTest
 
 /// demonstrates testing for very common properties
 module Patterns =
+  let CentralEuroTime = Platform.As (win  = fun () -> "Central Europe Standard Time"
+                                    ,osx  = fun () -> "Europe/Amsterdam"
+                                    ,unix = fun () -> failwith "platform not supported")
 
   /// inversion ... the property by which one action “undoes” the work of another action
   [<Property>]
@@ -18,14 +21,10 @@ module Patterns =
   /// interchange ... the property by which the order of two or more actions does not affect the outcome
   [<Property>]
   let ``adding & changing zone can be reordered`` (anyDate :Date) (PositiveInt total) =
-    let days    = Time.FromDays(total)
-    let cetStd  = Platform.As
-                    (win  = fun () -> "Central Europe Standard Time"
-                    ,osx  = fun () -> "Europe/Amsterdam"
-                    ,unix = fun () ->  failwith "platform not supported")
+    let days = Time.FromDays(total)
 
-    let addThenShift = Zone.ConvertTimeBySystemTimeZoneId(anyDate + days, cetStd)
-    let shiftThenAdd = Zone.ConvertTimeBySystemTimeZoneId(anyDate, cetStd) + days
+    let addThenShift = Zone.ConvertTimeBySystemTimeZoneId(anyDate + days, CentralEuroTime)
+    let shiftThenAdd = Zone.ConvertTimeBySystemTimeZoneId(anyDate, CentralEuroTime) + days
 
     addThenShift = shiftThenAdd
 

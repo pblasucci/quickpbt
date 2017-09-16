@@ -7,11 +7,11 @@ open FsCheck.Xunit
 
 open DomainUnderTest
 
-/// contains helpers types and functions to assist with data generation
+/// contains helper types and functions to assist with data generation
 [<AutoOpen>]
 module Generated =
-  /// represent a time value which is always greater then zero (> 0)
-  /// (note: only meant for use with FsCheck's generation functionality)
+  /// represents a time value which is always greater then zero (> 0)
+  /// (note: only meant for use with FsCheck's generation facilities)
   type PositiveTime = private PosTime of Time
 
   /// returns a new PositiveTime instance, throwing an exception on values less than zero
@@ -51,7 +51,7 @@ type Generator =
 type Generation(out :ITestOutputHelper) =
   (**
     NOTE: here we're using a primary-constructor class, rather than a module,
-          because we need to hook into xUnit's I/O mechanisms.
+          because we want to hook into xUnit's I/O mechanisms.
   *)
 
   /// generates `count` random instances of the given IArbitrary,
@@ -61,7 +61,7 @@ type Generation(out :ITestOutputHelper) =
     arb.Generator
     |> Gen.sample   size count
     |> Seq.groupBy  groupBy
-    |> Seq.map      (fun (_,value) -> Seq.head value,Seq.length value)
+    |> Seq.map      (fun (_,items) -> (Seq.head items,Seq.length items))
     |> Seq.sortBy   (fun (_,count) -> count)
 
   /// reports the random distribution of 100 PositiveTime instances
@@ -78,6 +78,7 @@ type Generation(out :ITestOutputHelper) =
       out.WriteLine(sprintf "%25s | %2i | %s" fts count bar)
 
   /// reports the random distribution of 100 TimeZoneInfo instances
+  /// (Note: grouping is done by time zone's offset from UTC)
   [<Fact>]
   member __.``time zone info distribution``() =
     out.WriteLine("\n[Distribution of 100 TimeZoneInfo Instances]\n")
@@ -95,7 +96,7 @@ type Generation(out :ITestOutputHelper) =
       let name  = zone.StandardName
       out.WriteLine(sprintf "%-*s | %2i | %s" length name count bar)
 
-  /// demonstrates attaching a collection of IArbitrary instances to a tests
+  /// demonstrates attaching a collection of IArbitrary instances to a test
   [<Property(Arbitrary=[| typeof<Generator> |])>]
   member __.``zone is unchanged through round-trip serialization``(anyZone :Zone) =
     (**
@@ -109,5 +110,5 @@ type Generation(out :ITestOutputHelper) =
       ,osx  = fun () -> true
       ,unix = fun () -> true)
       (**
-        NOTE: there is a known issue with deseriazing TimeZoneInfo on non-Windows OSes
+        NOTE: there is a known issue with deserializing TimeZoneInfo on non-Windows OSes
       *)

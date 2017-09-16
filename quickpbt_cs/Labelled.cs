@@ -39,7 +39,7 @@ namespace quickpbt
       bool sameShift() => (directly.Offset == zone2.BaseUtcOffset);
       
       return sameDate ().Label($"Same Date?  ({viaZone1} = {directly})")
-      // if either of these properties (^^^/vvv) does not hold, its label will be printed
+      // if either of these properties (^^^/vvv) does *not* hold, its label will be printed
         .And(sameShift().Label($"Same Shift? ({zone2.BaseUtcOffset} = {directly.Offset})"));
     }
 

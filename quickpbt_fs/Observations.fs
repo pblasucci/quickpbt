@@ -5,11 +5,11 @@ open FsCheck.Xunit
 
 open DomainUnderTest
 
-/// contains examples of gathering diagnostics abour generated data
+/// contains examples of gathering diagnostics about generated data
 /// (NOTE: `dotnet test` requires a `--verbosity` of *at least* 'normal' to see observations on the command line)
 [<Properties(Arbitrary=[| typeof<Generator> |])>]
 module Observations =
-  /// a trival observation partions data into one of two buckets
+  /// a trival observation partitions data into one of two buckets
   [<Property>]
   let ``trivial daylight savings support`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
@@ -20,7 +20,7 @@ module Observations =
     addThenShift = shiftThenAdd
       |> Prop.trivial anyZone.SupportsDaylightSavingTime
 
-  /// a classification partions data into one of N, labelled buckets
+  /// a classification partitions data into one of N, labelled buckets
   [<Property>]
   let ``classify meridian position`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)
@@ -44,7 +44,7 @@ module Observations =
     addThenShift = shiftThenAdd
       |> Prop.collect (weekdayName anyDate)
 
-  /// observations may be combined as mush as is desired
+  /// observations may be combined as much as is desired
   [<Property>]
   let ``many observations combined`` (anyDate :Date) (anyZone :Zone) (NonNegativeInt total) =
     let days = Time.FromDays(total)

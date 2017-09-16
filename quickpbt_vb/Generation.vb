@@ -3,8 +3,8 @@ Imports Timed = System.TimeSpan
 Imports Zoned = System.TimeZoneInfo
 
 ''' <summary>
-''' represent a time value which is always greater then zero (> 0)
-''' (note: only meant for use with FsCheck's generation functionality)
+''' represents a time value which is always greater then zero (> 0)
+''' (note: only meant for use with FsCheck's generation facilities)
 ''' </summary>
 Public NotInheritable Class PositiveTime
   ''' <summary>
@@ -20,7 +20,7 @@ Public NotInheritable Class PositiveTime
     If value <= Timed.Zero Then
       Throw New ArgumentOutOfRangeException(nameof(value), "value must be greater than 0")
     End If
-          
+
     Me.Value = value
   End Sub
 
@@ -33,7 +33,7 @@ Public NotInheritable Class PositiveTime
     If  you Is Nothing Then Return False
 
     Return Me.Value = you.Value
-  End Function 
+  End Function
 
   Public Overrides Function ToString() As String
     Return $"PositiveTime({Me.Value})"
@@ -48,6 +48,9 @@ Public NotInheritable Class PositiveTime
   End Operator
 End Class
 
+''' <summary>
+''' encapsulates several IArbitrary instances
+''' </summary>
 Module Generator
   ''' <summary>
   ''' generates arbitrary TimeZoneInfo instances, with no shrinking
@@ -58,7 +61,7 @@ Module Generator
   End Function
 
   ''' <summary>
-  ''' generates PositiveTime instances by leveraging FsCheck's 
+  ''' generates PositiveTime instances by leveraging FsCheck's
   ''' built-in support for generating and shrinking TimeSpan instances
   ''' </summary>
   ''' <returns>an IArbitrary capable of producing PositiveTime instances</returns>
@@ -85,6 +88,7 @@ Module Generator
   ''' <param name="arb">the IArbitrary responsible for producing instances of `T`</param>
   ''' <param name="size">the FsCheck seed value</param>
   ''' <param name="count">the number of data points in the distribution</param>
+  ''' <param name="groupBy">generates a key value from each data point (used for grouping)</param>
   ''' <returns>a sequence of tuples pairing each unique instance of `T` with its number of occurances</returns>
   <Extension>
   Public Function Distribute(Of T,TKey)(arb     As Arbitrary(Of T),
@@ -127,7 +131,7 @@ Public NotInheritable Class Generation
       _out.WriteLine($"{name + pad} | {pair.Count,2:##} | {bar}")
     Next
   End Sub
-  
+
   ''' <summary>
   ''' reports the random distribution of 100 PositiveTime instances
   ''' </summary>
@@ -145,7 +149,7 @@ Public NotInheritable Class Generation
   End Sub
 
   ''' <summary>
-  ''' demonstrates attaching a collection of IArbitrary instances to a tests  
+  ''' demonstrates attaching a collection of IArbitrary instances to a tests
   ''' </summary>
   <[Property](Arbitrary := New Type(){ GetType(Generator) })>
   Public Function ZoneIsUnchangedThroughRoundTripSerialization(anyZone As Zoned) As Boolean
