@@ -27,6 +27,8 @@ For browsing the C# source, either Visual Studio Code (with the Omnisharp plugin
 
 _At the time of last update, none of the projects are known to load successfully in Jet Brain's Rider or Visual Studio for Mac._
 
+Additionally, the `media/` folder contains the presentation as both a Microsoft PowerPoint slide deck and a PDF file.
+
 ### Pre-Requistes
 
 + .NET Core SDK (version 2.0 or higher)
