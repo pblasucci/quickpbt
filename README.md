@@ -53,7 +53,7 @@ Total tests: 19. Passed: 16. Failed: 3. Skipped: 0.
 Test Run Failed.
 Test execution time: 2.8377 Seconds
 ```
-Note that, if everything runs correctly, exactly three tests should have failed (this is for demonstration purposes).
+_(Note that, if everything runs correctly, exactly three tests should have failed. This is for demonstration purposes.)_
 
 Execute only tests related to a single category ("Teaser", for example):
 ```sh
