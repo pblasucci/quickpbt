@@ -4,7 +4,9 @@ QUICK! Check your Properties
 This repository contains the slide deck, accompanying source code, and errata
 for a presentation on property-based testing, using FsCheck with .NET Core
 
-To date, this material has NOT been presented.
+To date, this material has been presented:
+
++ At eVision Industry Software (Friday 22 September 2017)
 
 ---
 
@@ -37,7 +39,7 @@ Additionally, the `media/` folder contains the presentation as both a Microsoft 
 
 Navigate to the desired project folder:
 ```sh
-~ > cd quickpbt/quickbot_fs/
+~> cd quickpbt/quickbot_fs/
 ```
 
 Restore any missing packages:
